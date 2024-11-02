@@ -1,10 +1,13 @@
+import UserChoose from "../components/UserChoose";
 import Hero from "../components/Hero";
+import Internship from "../components/Internship";
 
 function Home() {
   return (
-    <section className=" w-full bg-red-300 pt-[64px]">
-     
-        <Hero />
+    <section className=" w-full pt-[64px]">
+      <Hero />
+      <UserChoose />
+      <Internship />
       
     </section>
   );

@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@keyframes slideRightIn {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes slideRightOut {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .dev-slide-right-open {
+    animation: slideRightIn 0.2s ease-in forwards ;
+  }
+  
+  .dev-slide-right-close {
+    animation: slideRightOut 0.2s ease-out forwards ;
+  }
+  

@@ -19,14 +19,13 @@ function Footer() {
             </div>
             <div className="flex flex-col items-center gap-3">
               <h2 className="font-semibold text-lg">Follow Our Social Media</h2>
-            <div className="w-full flex justify-center lg:justify-start items-center gap-8">
-              <CiFacebook className="text-2xl" />
-              <CiLinkedin className="text-2xl" />
-              <FaInstagram className="text-2xl" />
-              <CiTwitter className="text-2xl" />
+              <div className="w-full flex justify-center lg:justify-start items-center gap-8">
+                <CiFacebook className="text-2xl" />
+                <CiLinkedin className="text-2xl" />
+                <FaInstagram className="text-2xl" />
+                <CiTwitter className="text-2xl" />
+              </div>
             </div>
-            </div>
-          
           </div>
           <div className="flex flex-col items-center lg:items-start gap-2">
             <h4 className="font-bold mb-2 text-xl">About Internsathi</h4>
@@ -59,9 +58,9 @@ function Footer() {
           </div>
         </div>
         <hr className="border-1 border-white w-full" />
-        <div className="w-full flex justify-center items-center text-white gap-[2px] mt-10">
-          2024 All Reserved <PiCopyrightLight /> InternSathi Edtech Pvt. Ltd.
-        </div>
+        <p className=" text-center text-white  mt-10">
+          2024 All Reserved © InternSathi Edtech Pvt. Ltd.
+        </p>
       </div>
     </div>
   );
