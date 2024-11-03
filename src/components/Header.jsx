@@ -86,10 +86,10 @@ function Header() {
         <div
           className={`${
             menuOpen ? "dev-slide-right-open" : "dev-slide-right-close"
-          } md:hidden w-1/2 h-lvh flex flex-col items-start p-3 bg-[#17171F] absolute top-0 left-0 z-10 border-r `}
+          } md:hidden min-w-[280px] h-lvh flex flex-col items-start p-3 bg-[#17171F] absolute top-0 left-0 z-10 border-r `}
         >
           <div className="flex justify-between items-center w-full mb-4">
-            <Logo />
+            <Logo width={160} />
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <HiX className="text-white text-2xl" />
             </button>
@@ -107,7 +107,7 @@ function Header() {
               </Link>
             ))}
           </nav>
-          <div>
+          <div className="relative">
             <button
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -117,14 +117,14 @@ function Header() {
             </button>
 
             {isHovered && (
-              <div className="w-36 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2">
+              <div className="w-36 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-12 z-10">
                 <Link to="/events">Events</Link>
                 <Link to="/browse-events">Browse Events</Link>
               </div>
             )}
           </div>
 
-          <div className="flex items-center justify-center gap-10 w-full mt-6">
+          <div className="flex items-center justify-center gap-10 w-full mt-6 relative">
             <Link
               className="text-white font-semibold hover:text-[#EE2f2f]  "
               to="/login"
@@ -133,12 +133,12 @@ function Header() {
             </Link>
             <button
               onClick={() => setRegisterModal(!registerModal)}
-              className="font-semibold px-[12px] py-[10px] bg-[#EE2f2f] rounded-lg gap-1 flex  items-center  text-white "
+              className="font-semibold px-[10px] py-[8px] bg-[#EE2f2f] rounded-lg gap-1 flex  items-center  text-white "
             >
               Register <GoTriangleDown />
             </button>
             {registerModal && (
-              <div className="w-48 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2">
+              <div className="w-48 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-11">
                 <Link to="/register-candidate">Register as a candidate</Link>
                 <Link to="/register-recruiter">Register as recruiter</Link>
                 <Link to="/register-institute">Register as an institute</Link>
