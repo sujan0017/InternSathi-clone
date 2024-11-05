@@ -1,32 +1,35 @@
 import { IoIosArrowForward, IoIosArrowRoundForward } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Internship() {
   return (
     <section className=" px-5 2xl:px-[142px] py-10 bg-secondaryBg ">
-      <div className="flex items-center justify-between mb-12">
-        <div className="flex flex-col gap-2">
+      <div className="flex items-start justify-between mb-12 flex-wrap">
+        <div className="flex flex-col gap-2 ">
           <h3 className="text-3xl font-semibold ">
             Get your dream internship now
           </h3>
+
           <p className="">
             Search your career opportunity through the available position
           </p>
         </div>
-        <Link className="text-secondaryDark font-semibold text-xs flex justify-center items-center ">
+        <Link className="text-secondaryDark font-semibold text-xs flex justify-center items-center mt-2 md:mt-0 hover:underline ">
           Browse all internship <IoIosArrowForward className="font-semibold" />{" "}
         </Link>
       </div>
-      <div className="flex gap-5">
-        <InternshipBtnActive />
-        <InternshipBtn title="Nearest" />
-        <InternshipBtn title="Newest" />
-        <InternshipBtn title="Oldest" />
-      </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-5 pt-16">
-        <InternshipCart />
-        <InternshipCart />
-        <InternshipCart />
+      <div>
+        <div className="flex gap-5 overflow-x-auto whitespace-nowrap md:overflow-x-hidden snap-x pb-5">
+          <InternshipBtnActive />
+          <InternshipBtn title="Nearest" />
+          <InternshipBtn title="Newest" />
+          <InternshipBtn title="Oldest" />
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-5 pt-16">
+          <InternshipCart />
+          <InternshipCart />
+          <InternshipCart />
+        </div>
       </div>
     </section>
   );
@@ -67,10 +70,10 @@ export function InternshipBtnActive() {
     </button>
   );
 }
-export function InternshipBtn({ title = "Default" }) {
+export function InternshipBtn({ title = "Default" , href }) {
   return (
-    <button className=" text-black px-4 py-2 rounded-xl border shadow-md">
+    <NavLink to={href} className=" text-black px-4 py-2 rounded-xl border shadow-md">
       {title}
-    </button>
+    </NavLink>
   );
 }

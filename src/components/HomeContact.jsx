@@ -37,7 +37,7 @@ export function HomeContactCart({ title, contactNumber, mail }) {
         <FaPhone />
         {contactNumber}
       </a>
-      <a href={`mailto:${mail}`} className="flex items-center gap-2 text-primary hover:underline">
+      <a href={`mailto:${mail}`} className="flex items-center gap-2 text-primary hover:underline mt-2">
         <MdMail />
         {mail}
       </a>
