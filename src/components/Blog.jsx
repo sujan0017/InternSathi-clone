@@ -5,7 +5,7 @@ function Blog() {
   return (
     <section className=" w-full px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 bg-primary ">
       <h5 className="text-[30px] font-semibold text-white">Form Our Blogs</h5>
-      <p className="text-t-md text-white">
+      <p className="text-center text-white">
         A better career is out there. We'll help your first step to becoming
         everything you want to be.
       </p>
