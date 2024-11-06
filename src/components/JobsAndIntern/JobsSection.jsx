@@ -11,7 +11,7 @@ import JobDescription from "./JobDescription";
 
 function JobsSection() {
   return (
-    <section className=" w-full mt-5 px-5 2xl:px-[142px] bg-fontColor bg-opacity-20">
+    <section className=" w-full  px-5 2xl:px-[142px] bg-fontColor bg-opacity-20">
       <div className="grid w-full grid-cols-12  gap-5 py-7 ">
         <div className="w-full flex flex-col justify-start  gap-4 max-h-[100vh] overflow-y-auto col-span-12 md:col-span-4  ">
           <JobsSectionCart />

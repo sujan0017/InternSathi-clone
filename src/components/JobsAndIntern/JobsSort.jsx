@@ -6,7 +6,7 @@ function JobsSort() {
 
   const opportunities = ["All Opportunities", "Event", "internship", "Join"];
   return (
-    <section className=" w-full px-5 2xl:px-[142px] pt-[88px] pb-[24px] flex items-center gap-6">
+    <section className=" w-full px-5 2xl:px-[142px] pt-[88px] pb-[24px] flex items-center gap-6 shadow-md">
 
       <div className={`relative`}>
         <button

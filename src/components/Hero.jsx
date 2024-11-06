@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Hero() {
   return (
     <div className="px-5 2xl:px-[56px] w-full bg-primary ">
-      <div className="flex flex-col items-center gap-8 w-full text-white max-w-[900px] mx-auto py-24">
+      <div className="flex flex-col items-center gap-8 w-full text-white max-w-[900px] mx-auto py-10 md:py-24">
         <h1 className="text-center text-[33px] md:text-[48px] font-bold ">
           Join the most popular internship and companies.
         </h1>

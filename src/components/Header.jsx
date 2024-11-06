@@ -34,7 +34,7 @@ function Header() {
             <button
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="text-white flex items-center gap-1"
+              className="text-white flex items-center gap-1 "
             >
               Events <GoTriangleDown />
             </button>
@@ -42,15 +42,15 @@ function Header() {
               <div
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="w-36 p-2 bg-slate-100 absolute top-8 rounded-lg flex flex-col gap-2 opacity-[95%]"
+                className="w-36  bg-slate-100 absolute top-8 rounded-lg flex flex-col  opacity-[95%]"
               >
-                <Link to="/events">Events</Link>
-                <Link to="/browse-events">Browse Events</Link>
+                <Link className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary" to="/">Events</Link>
+                <Link  className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary" to="/browse-events">Browse Events</Link>
               </div>
             )}
           </div>
           <div className="flex gap-5 items-center">
-            <Link className="text-white  hover:text-secondary">
+            <Link to='auth/login' className="text-white  hover:text-secondary">
               Login
             </Link>
             <div className="relative">
@@ -64,11 +64,11 @@ function Header() {
                 <div
                   onMouseEnter={() => setRegisterModal(true)}
                   onMouseLeave={() => setRegisterModal(false)}
-                  className="w-48 p-2 bg-slate-100 absolute top-10 right-[2px] rounded-lg flex flex-col gap-2 opacity-[95%]"
+                  className="w-48  bg-slate-100 absolute top-10 right-[2px] rounded-lg flex flex-col  opacity-[95%]"
                 >
-                  <Link to="/register-candidate">Register as a candidate</Link>
-                  <Link to="/register-recruiter">Register as recruiter</Link>
-                  <Link to="/register-institute">Register as an institute</Link>
+                  <Link className="hover:bg-slate-300 px-2 py-1 rounded-t" to="/register-candidate">Register as a candidate</Link>
+                  <Link className="hover:bg-slate-300 px-2 py-1 " to="/register-recruiter">Register as recruiter</Link>
+                  <Link className="hover:bg-slate-300 px-2 py-1 rounded-b" to="/register-institute">Register as an institute</Link>
                 </div>
               )}
             </div>
@@ -129,7 +129,7 @@ function Header() {
           <div className="flex items-center justify-center gap-10 w-full mt-6 relative">
             <Link
               className="text-white font-semibold hover:text-[#EE2f2f]  "
-              to="/login"
+              to="auth/login"
             >
               Login
             </Link>
@@ -141,9 +141,9 @@ function Header() {
             </button>
             {registerModal && (
               <div className="w-48 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-11">
-                <Link to="/register-candidate">Register as a candidate</Link>
-                <Link to="/register-recruiter">Register as recruiter</Link>
-                <Link to="/register-institute">Register as an institute</Link>
+                <Link to="auth/register-candidate">Register as a candidate</Link>
+                <Link to="auth/register-recruiter">Register as recruiter</Link>
+                <Link to="auth/register-institute">Register as an institute</Link>
               </div>
             )}
           </div>
