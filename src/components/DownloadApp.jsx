@@ -6,7 +6,7 @@ function DownloadApp() {
       <div className="grid md:grid-cols-2 gap-10 ">
         <div className="flex flex-col item-first justify-center gap-4">
           <h3 className="text-3xl font-bold">Download Our Mobile App.</h3>
-          <p>Build a Perfect Resumes & Apply Internship</p>
+          <p className="text-sm text-black text-opacity-80">Build a Perfect Resumes & Apply Internship</p>
           <div>
             <button className="px-4 py-3 flex justify-center items-center gap-2 bg-black rounded-xl">
               <IoLogoGooglePlaystore className="text-3xl font-bold text-white" />{" "}

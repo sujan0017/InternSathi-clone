@@ -6,15 +6,15 @@ function AskQuestion() {
   return (
     <section className=" w-full px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 bg-secondaryBg ">
       <h5 className="text-[30px] font-semibold ">Frequently Asked Questions</h5>
-      <p className="text-t-md ">
+      <p className=" text-fontColor text-sm">
         Still you have any questions? Contact our Team via{" "}
         <span className="text-secondary">support@internsathi.com</span>
       </p>
 
       <div className=" flex flex-col-reverse gap-10 flex-wrap md:flex-row md:flex-nowrap mt-10">
         <div className=" w-full md:w-1/2 xl:w-1/3">
-          <h5 className="font-bold text-2xl mb-2">Ask Your Questions</h5>
-          <p className="mb-4">
+          <h5 className="font-bold text-xl mb-2">Ask Your Questions</h5>
+          <p className="mb-4 text-fontColor text-sm">
             If the question is not available on our FAQ section, Feel free to
             contact us personally, we will resolve your respective doubts.
           </p>
@@ -60,11 +60,11 @@ export function AskQuestionCart({ title, description }) {
       className="p-[16px] border rounded-md"
       onClick={() => setShowPara(!showPara)}
     >
-      <h3 className="text-lg font-semibold py-[10px] flex justify-between items-center hover:underline">
+      <h3 className="text-[17px] font-semibold py-[10px] flex justify-between items-center hover:underline text-black text-opacity-70">
         {title}
         {showPara ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </h3>
-      <p className={`${showPara ? "block" : "hidden"} pt-2 text-[15px]`}>
+      <p className={`${showPara ? "block" : "hidden"} pt-2 text-[15px] text-fontColor`}>
         {description}
       </p>
     </div>

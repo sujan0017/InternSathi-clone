@@ -1,6 +1,13 @@
+import JobsSection from "../components/JobsAndIntern/JobsSection";
+import JobsSort from "../components/JobsAndIntern/JobsSort";
 
 function Internships() {
-    return <div className=" w-full h-lvh bg-green-300">Internships Page</div>;
+  return (
+    <>
+      <JobsSort />
+      <JobsSection />
+    </>
+  );
 }
 
-export default Internships
+export default Internships;

@@ -1,6 +1,5 @@
-
 function Jobs() {
-    return <div className=" w-full h-lvh bg-yellow-300">Jobs Page</div>;
+  return <div className=" w-full h-lvh bg-yellow-300">Jobs Page</div>;
 }
 
-export default Jobs
+export default Jobs;

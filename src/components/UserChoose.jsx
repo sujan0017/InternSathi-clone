@@ -20,9 +20,9 @@ function UserChoose() {
   );
 }
 // eslint-disable-next-line react/prop-types
-export function UserChooseCart({ title, description, btn, imgLink, textColor='black'}) {
+export function UserChooseCart({ title, description, btn, imgLink, textColor='textColor'}) {
   return (
-    <div className="flex flex-col justify-start items-center rounded-3xl relative p-4 overflow-hidden">
+    <div className="flex flex-col justify-start items-center rounded-3xl relative px-4 py-8 overflow-hidden">
       <div className="w-full absolute top-0 bottom-0">
         <img
           src={imgLink}
@@ -36,7 +36,7 @@ export function UserChooseCart({ title, description, btn, imgLink, textColor='bl
         <h2 className={`text-${textColor} text-2xl font-bold` }>{title}</h2>
         <p className={`text-${textColor} text-sm pr-10 xl:pr-40`}>{description}</p>
         <div>
-          <button className="bg-white text-secondaryDark rounded-lg py-2 px-4 mt-3">
+          <button className="bg-white text-secondaryDark rounded-lg py-2 px-4 mt-3 font-semibold  text-sm">
             {btn}
           </button>
         </div>

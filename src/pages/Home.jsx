@@ -1,20 +1,20 @@
 import UserChoose from "../components/UserChoose";
 import Hero from "../components/Hero";
-import Internship from "../components/Internship";
 import Help from "../components/Help";
 import Blog from "../components/Blog";
 import AskQuestion from "../components/AskQuestion";
 import HomeContact from "../components/HomeContact";
 import DownloadApp from "../components/DownloadApp";
+import HomeInternship from "../components/HomeInternship";
 
 function Home() {
   return (
     <section className=" w-full pt-[64px]">
       <Hero />
       <UserChoose />
-      <Internship />
+      <HomeInternship />
       <Help />
-      <Internship />
+      <HomeInternship />
       <Blog />
       <AskQuestion />
       <HomeContact />

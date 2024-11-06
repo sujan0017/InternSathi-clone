@@ -1,7 +1,7 @@
 import { IoIosArrowForward, IoIosArrowRoundForward } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
 
-function Internship() {
+function HomeInternship() {
   return (
     <section className=" px-5 2xl:px-[142px] py-10 bg-secondaryBg ">
       <div className="flex items-start justify-between mb-12 flex-wrap">
@@ -20,30 +20,30 @@ function Internship() {
       </div>
       <div>
         <div className="flex gap-5 overflow-x-auto whitespace-nowrap md:overflow-x-hidden snap-x pb-5">
-          <InternshipBtnActive />
-          <InternshipBtn title="Nearest" />
-          <InternshipBtn title="Newest" />
-          <InternshipBtn title="Oldest" />
+          <HomeInternshipBtnActive />
+          <HomeInternshipBtn title="Nearest" />
+          <HomeInternshipBtn title="Newest" />
+          <HomeInternshipBtn title="Oldest" />
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-5 pt-16">
-          <InternshipCart />
-          <InternshipCart />
-          <InternshipCart />
+          <HomeInternshipCart />
+          <HomeInternshipCart />
+          <HomeInternshipCart />
         </div>
       </div>
     </section>
   );
 }
 
-export default Internship;
+export default HomeInternship;
 
-export function InternshipCart() {
+export function HomeInternshipCart() {
   return (
     <div className="bg-white rounded-lg p-5 flex flex-col items-start justify-center gap-3">
       <div className="size-16 bg-black rounded-full">
         <img src="" alt="" />
       </div>
-      <h4 className="text-xl font-semibold ">
+      <h4 className="text-xl ">
         Data Entry intern with Photoshop Skills
       </h4>
       <p className="text-sm uppercase">Intetnship</p>
@@ -52,9 +52,9 @@ export function InternshipCart() {
         suscipit?
       </p>
       <div>
-        <InternshipBtn />
-        <InternshipBtn />
-        <InternshipBtn />
+        <HomeInternshipBtn />
+        <HomeInternshipBtn />
+        <HomeInternshipBtn />
       </div>
       <Link className="text-secondaryDark font-semibold text-l flex justify-center items-center ">
         Apply Now <IoIosArrowRoundForward />{" "}
@@ -63,14 +63,14 @@ export function InternshipCart() {
   );
 }
 
-export function InternshipBtnActive() {
+export function HomeInternshipBtnActive() {
   return (
     <button className="bg-secondaryDark text-white px-4 py-2 rounded-xl">
-      featured Internship
+      featured HomeInternship
     </button>
   );
 }
-export function InternshipBtn({ title = "Default" , href }) {
+export function HomeInternshipBtn({ title = "Default" , href }) {
   return (
     <NavLink to={href} className=" text-black px-4 py-2 rounded-xl border shadow-md">
       {title}

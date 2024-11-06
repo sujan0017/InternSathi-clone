@@ -13,14 +13,16 @@ function Header() {
   return (
     <header className="w-full h-[64px] bg-primary flex justify-center items-center fixed z-20">
       <div className=" px-5 2xl:px-[142px] w-full flex justify-between items-center ">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8">
           <nav className="flex gap-5 items-center">
             {navMenu.map((menu) => (
               <Link
-                className="text-white font-semibold"
+                className="text-white "
                 to={menu.href}
                 key={menu.id}
               >
@@ -48,13 +50,13 @@ function Header() {
             )}
           </div>
           <div className="flex gap-5 items-center">
-            <Link className="text-white font-semibold hover:text-secondary">
+            <Link className="text-white  hover:text-secondary">
               Login
             </Link>
             <div className="relative">
               <button
                 onClick={() => setRegisterModal(!registerModal)}
-                className="font-semibold px-3 py-[4px] bg-secondary rounded-lg flex gap-1 items-center text-white"
+                className=" px-3 py-[4px] bg-secondary rounded-lg flex gap-1 items-center text-white"
               >
                 Register <GoTriangleDown />
               </button>

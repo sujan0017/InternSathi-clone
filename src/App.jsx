@@ -19,7 +19,7 @@ function App() {
         <Route path="/internships" element={<Internships />} />
         <Route path="/jobs" element={<Jobs />} />
         
-        <Route path="/jobs" element={<Jobs />} />
+    
 
 
 

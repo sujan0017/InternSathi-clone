@@ -1,7 +1,7 @@
 function Help() {
   return (
     <section className=" w-full  px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 ">
-      <h5 className="text-[30px] font-semibold">How can we help</h5>
+      <h5 className="text-[30px] ">How can we help</h5>
       <p className="text-t-md text-gray-400">Making your talent search easy</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
         <HelpCart
