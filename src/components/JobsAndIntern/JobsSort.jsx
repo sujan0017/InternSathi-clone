@@ -33,9 +33,9 @@ function JobsSort() {
         </div>
       </div>
 
-      <div className="border-r-2 border-fontColor h-[50px] border-opacity-10"></div>
+      <div className="border-r-2 border-fontColor h-[50px] border-opacity-10 hidden md:block"></div>
 
-      <div className={`relative`}>
+      <div className={`relative hidden md:block`}>
         <button
           onClick={() => setShowSortList(!showSortList)}
           className="flex justify-center items-center gap-5 border-2 px-3 py-2 rounded-xl text-"

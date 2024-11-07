@@ -15,7 +15,7 @@ function Login() {
 
         <form action="">
           <div className="flex flex-col gap-3">
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 mt-1 ">
               <label className="text-sm">Email*</label>
               <input
                 type="email"
@@ -24,7 +24,7 @@ function Login() {
               />
             </div>
 
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 my-3">
               <label className="text-sm">Password*</label>
               <div className="relative w-full ">
                 <input
@@ -45,19 +45,21 @@ function Login() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between mt-2">
+            <div className="flex items-center justify-between ">
               <div>
-                <input  type="checkbox" className="mr-2 w-4 h-4 border-2 border-gray-300 rounded" />
+                <input
+                  type="checkbox"
+                  className="mr-2 w-4 h-4 border-2 border-gray-300 rounded"
+                />
                 <label className="text-sm font-medium">Keep me sign in</label>
               </div>
 
-              
               <a className="text-secondary font-medium text-sm" href="">
                 Forger Password?
               </a>
             </div>
 
-            <button className="w-full bg-secondary text-white text-sm py-3 rounded-md font-normal mt-2">
+            <button className="w-full bg-secondary text-white text-sm py-3 rounded-md font-normal mt-3">
               Sign in
             </button>
 
@@ -75,33 +77,34 @@ function Login() {
               </h5>
             </button>
 
-            <div className="mt-2">
+            <div className="mt-3">
               <p className="text-center text-sm text-gray-600">
                 Don't have an account? Register as
               </p>
               <div className="flex  justify-center gap-2 mt-2">
                 <Link
                   className="text-secondary text-sm hover:underline"
-                  to="auth/register-candidate"
+                  to="/register-candidate"
                 >
-                  Candidate{" "}
+                  Candidate
                 </Link>
                 <span className="text-secondary">/</span>
                 <Link
                   className="text-secondary text-sm hover:underline"
-                  to="auth/register-recruiter"
+                  to="/register-recruiter"
                 >
-                  Recruiter{" "}
+                  Recruiter
                 </Link>
                 <span className="text-secondary">/</span>
                 <Link
                   className="text-secondary text-sm hover:underline"
-                  to="auth/register-institute"
+                  to="/register-institute"
                 >
-                  Institute{" "}
+                  Institute
                 </Link>
               </div>
             </div>
+
           </div>
         </form>
       </div>

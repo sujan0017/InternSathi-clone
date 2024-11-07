@@ -21,11 +21,7 @@ function Header() {
         <div className="hidden md:flex gap-8">
           <nav className="flex gap-5 items-center">
             {navMenu.map((menu) => (
-              <Link
-                className="text-white "
-                to={menu.href}
-                key={menu.id}
-              >
+              <Link className="text-white " to={menu.href} key={menu.id}>
                 {menu.label}
               </Link>
             ))}
@@ -44,13 +40,23 @@ function Header() {
                 onMouseLeave={() => setIsHovered(false)}
                 className="w-36  bg-slate-100 absolute top-8 rounded-lg flex flex-col  opacity-[95%]"
               >
-                <Link className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary" to="/">Events</Link>
-                <Link  className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary" to="/browse-events">Browse Events</Link>
+                <Link
+                  className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary"
+                  to="/"
+                >
+                  Events
+                </Link>
+                <Link
+                  className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary"
+                  to="/browse-events"
+                >
+                  Browse Events
+                </Link>
               </div>
             )}
           </div>
           <div className="flex gap-5 items-center">
-            <Link to='auth/login' className="text-white  hover:text-secondary">
+            <Link to="auth/login" className="text-white  hover:text-secondary">
               Login
             </Link>
             <div className="relative">
@@ -66,9 +72,24 @@ function Header() {
                   onMouseLeave={() => setRegisterModal(false)}
                   className="w-48  bg-slate-100 absolute top-10 right-[2px] rounded-lg flex flex-col  opacity-[95%]"
                 >
-                  <Link className="hover:bg-slate-300 px-2 py-1 rounded-t" to="/register-candidate">Register as a candidate</Link>
-                  <Link className="hover:bg-slate-300 px-2 py-1 " to="/register-recruiter">Register as recruiter</Link>
-                  <Link className="hover:bg-slate-300 px-2 py-1 rounded-b" to="/register-institute">Register as an institute</Link>
+                  <Link
+                    className="hover:bg-slate-300 px-2 py-2 rounded-t text-sm"
+                    to="auth/register-candidate"
+                  >
+                    Register as a candidate
+                  </Link>
+                  <Link
+                    className="hover:bg-slate-300 px-2 py-2 text-sm "
+                    to="auth/register-recruiter"
+                  >
+                    Register as recruiter
+                  </Link>
+                  <Link
+                    className="hover:bg-slate-300 px-2 py-2 rounded-b text-sm"
+                    to="auth/register-institute"
+                  >
+                    Register as an institute
+                  </Link>
                 </div>
               )}
             </div>
@@ -97,10 +118,10 @@ function Header() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-6">
+          <nav className="flex flex-col gap-1 w-full">
             {navMenu.map((menu) => (
               <Link
-                className="text-white font-semibold"
+                className="text-white flex-1 py-2"
                 to={menu.href}
                 key={menu.id}
                 onClick={() => setMenuOpen(false)} // Close menu on click
@@ -141,9 +162,15 @@ function Header() {
             </button>
             {registerModal && (
               <div className="w-48 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-11">
-                <Link to="auth/register-candidate">Register as a candidate</Link>
-                <Link to="auth/register-recruiter">Register as recruiter</Link>
-                <Link to="auth/register-institute">Register as an institute</Link>
+                <Link className="text-sm" to="auth/register-candidate">
+                  Register as a candidate
+                </Link>
+                <Link className="text-sm" to="auth/register-recruiter">
+                  Register as recruiter
+                </Link>
+                <Link className="text-sm" to="auth/register-institute">
+                  Register as an institute
+                </Link>
               </div>
             )}
           </div>

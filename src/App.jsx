@@ -12,7 +12,9 @@ import Jobs from "./pages/Jobs";
 import BrowseEvents from "./pages/BrowseEvents";
 
 import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+import CandidateRegister from "./pages/auth/CandidateRegister";
+import RecruiterRegister from "./pages/auth/RecruiterRegister";
+import InstituteRegister from "./pages/auth/InstituteRegister";
 
 function App() {
   const router = createBrowserRouter(
@@ -23,9 +25,10 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/browse-events" element={<BrowseEvents />} />
 
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register-candidate" element={<Register />} />
-       
+        <Route path="auth/login" element={<Login />} />
+        <Route path="auth/register-candidate" element={<CandidateRegister />} />
+        <Route path="auth/register-recruiter" element={<RecruiterRegister />} />
+        <Route path="auth/register-institute" element={<InstituteRegister />} />
       </Route>
     )
   );
