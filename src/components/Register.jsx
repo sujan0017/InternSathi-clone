@@ -4,7 +4,16 @@ import { FcGoogle } from "react-icons/fc";
 import { FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-function Register({ frontHeader, backHeader, hideItems = "block" , placeholder }) {
+function Register({
+  // eslint-disable-next-line react/prop-types
+  frontHeader,
+  // eslint-disable-next-line react/prop-types
+  backHeader,
+  // eslint-disable-next-line react/prop-types
+  hideItems = "block",
+  // eslint-disable-next-line react/prop-types
+  placeholder,
+}) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
   return (
@@ -23,7 +32,7 @@ function Register({ frontHeader, backHeader, hideItems = "block" , placeholder }
             alt=""
           />
 
-          <div className="w-[200px] absolute bottom-[350px] left-[550px] ">
+          <div className="w-[200px] absolute bottom-[350px] left-[550px] hidden lg:block ">
             <img
               className="w-full"
               src="https://internsathi.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Farrow.4d895353.png&w=256&q=75"
@@ -70,7 +79,7 @@ function Register({ frontHeader, backHeader, hideItems = "block" , placeholder }
               </div>
             </div>
 
-            <div className="flex flex-col gap-1 my-3">
+            <div className="flex flex-col gap-1 mb-3">
               <label className="text-sm">Confirm Password*</label>
               <div className="relative w-full ">
                 <input
@@ -115,7 +124,7 @@ function Register({ frontHeader, backHeader, hideItems = "block" , placeholder }
             </button>
 
             <div
-              className={` ${hideItems} flex items-center my-2 text-gray-500`}
+              className={`${hideItems} flex items-center my-2 text-gray-500`}
             >
               <div className="border-t-2 w-full"></div>
               <div className="text-xs px-2 w-48">or login with</div>
@@ -123,7 +132,7 @@ function Register({ frontHeader, backHeader, hideItems = "block" , placeholder }
             </div>
 
             <button
-              className={` ${hideItems} border-2 rounded-md py-2 flex items-center justify-center gap-2`}
+              className={`${hideItems} border-2 rounded-md py-2 flex items-center justify-center gap-2`}
             >
               <FcGoogle className="text-2xl" />
               <h5 className="text-base text-center">
