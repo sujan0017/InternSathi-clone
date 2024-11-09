@@ -7,7 +7,7 @@ import { GiArrowWings } from "react-icons/gi";
 
 function Footer() {
   return (
-    <section className="relative w-full  bg-[#080d37]">
+    <section className="relative w-full  bg-newPrimary">
       <div className="absolute top-0 bottom-0 z-10 w-full">
         <Universe />
       </div>

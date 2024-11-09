@@ -11,7 +11,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
 
   return (
-    <header className="w-full h-[64px] bg-primary flex justify-center items-center fixed z-20">
+    <header className="w-full h-[64px] bg-newPrimary flex justify-center items-center fixed z-20">
       <div className=" px-5 2xl:px-[142px] w-full flex justify-between items-center ">
         <Link to="/">
           <Logo />

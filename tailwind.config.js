@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#17171f",
+        newPrimary: "#080d37",
         secondary: "#0071cd",
         secondaryDark: "#D93D42",
         background: "#F1C40F",
@@ -23,7 +24,7 @@ export default {
             opacity: "10",
             transform: "translateY(100vh) translateX(-50vw)",
           },
-          "50%": { opacity: "0.2", },
+          "50%": { opacity: "0.2" },
           "100%": {
             transform: "translateY(-100vh) translateX(90vw)",
             opacity: "10",
