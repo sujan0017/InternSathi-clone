@@ -18,7 +18,7 @@ function AskQuestion() {
             If the question is not available on our FAQ section, Feel free to
             contact us personally, we will resolve your respective doubts.
           </p>
-          <button className="flex justify-center items-center gap-2 border-2 py-2 px-3 rounded-xl text-secondary text-[15px] font-semibold hover:bg-orange-50 hover:border-2 hover:border-secondary">
+          <button className="flex justify-center items-center gap-2 border-2 py-2 px-3 rounded-xl text-secondary text-[15px] font-semibold hover:bg-secondary hover:bg-opacity-10 hover:border-2 hover:border-secondary">
             <BsChatDots className="text-xl" /> Contact Us
           </button>
         </div>

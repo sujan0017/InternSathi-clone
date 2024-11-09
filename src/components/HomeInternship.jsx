@@ -14,7 +14,7 @@ function HomeInternship() {
             Search your career opportunity through the available position
           </p>
         </div>
-        <Link className="text-secondaryDark font-semibold text-xs flex justify-center items-center mt-2 md:mt-0 hover:underline ">
+        <Link className="text-secondary font-semibold text-xs flex justify-center items-center mt-2 md:mt-0 hover:underline ">
           Browse all internship <IoIosArrowForward className="font-semibold" />{" "}
         </Link>
       </div>
@@ -56,7 +56,7 @@ export function HomeInternshipCart() {
         <HomeInternshipBtn />
         <HomeInternshipBtn />
       </div>
-      <Link className="text-secondaryDark font-semibold text-l flex justify-center items-center ">
+      <Link className="text-secondary font-semibold text-l flex justify-center items-center ">
         Apply Now <IoIosArrowRoundForward />{" "}
       </Link>
     </div>
@@ -65,7 +65,7 @@ export function HomeInternshipCart() {
 
 export function HomeInternshipBtnActive() {
   return (
-    <button className="bg-secondaryDark text-white px-4 py-2 rounded-xl">
+    <button className="bg-secondary text-white px-4 py-2 rounded-xl">
       featured HomeInternship
     </button>
   );

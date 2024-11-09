@@ -41,13 +41,13 @@ function Header() {
                 className="w-36  bg-slate-100 absolute top-8 rounded-lg flex flex-col  opacity-[95%]"
               >
                 <Link
-                  className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary"
+                  className="hover:bg-secondary hover:bg-opacity-10 hover:rounded-md px-2 py-1 hover:text-secondary"
                   to="/"
                 >
                   Events
                 </Link>
                 <Link
-                  className="hover:bg-orange-100 hover:rounded-md px-2 py-1 hover:text-secondary"
+                  className="hover:bg-secondary hover:bg-opacity-10 hover:rounded-md px-2 py-1 hover:text-secondary"
                   to="/browse-events"
                 >
                   Browse Events
@@ -147,22 +147,32 @@ function Header() {
 
             {isHovered && (
               <div className="w-36 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-12 z-10">
-                <Link to="/events">Events</Link>
-                <Link to="/browse-events">Browse Events</Link>
+                 <Link
+                  className="hover:bg-secondary hover:bg-opacity-10 hover:rounded-md px-2 py-1 hover:text-secondary"
+                  to="/"
+                >
+                  Events
+                </Link>
+                <Link
+                  className="hover:bg-secondary hover:bg-opacity-10 hover:rounded-md px-2 py-1 hover:text-secondary"
+                  to="/browse-events"
+                >
+                  Browse Events
+                </Link>
               </div>
             )}
           </div>
 
           <div className="flex items-center justify-center gap-10 w-full mt-6 relative">
             <Link
-              className="text-white font-semibold hover:text-[#EE2f2f]  "
+              className="text-white font-semibold hover:text-secondary  "
               to="auth/login"
             >
               Login
             </Link>
             <button
               onClick={() => setRegisterModal(!registerModal)}
-              className="font-semibold px-[10px] py-[8px] bg-[#EE2f2f] rounded-lg gap-1 flex  items-center  text-white "
+              className="font-semibold px-[10px] py-[8px] bg-secondary rounded-lg gap-1 flex  items-center  text-white "
             >
               Register <GoTriangleDown />
             </button>

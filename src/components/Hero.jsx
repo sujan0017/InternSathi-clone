@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <div className="px-5 2xl:px-[56px] w-full bg-primary ">
+    <div className="px-5 2xl:px-[56px] w-full bg-secondary ">
       <div className="flex flex-col items-center gap-8 w-full text-white max-w-[900px] mx-auto py-10 md:py-24">
         <h1 className="text-center text-[33px] md:text-[48px] font-bold ">
           Join the most popular internship and companies.
@@ -19,7 +19,7 @@ function Hero() {
             className="w-full bg-white rounded-lg md:rounded-full p-3 md:flex md:items-center md:justify-center md:py-[5px] "
           >
             <div>
-              <button className="flex gap-2 justify-center items-center text-secondary px-[16px] py-[12px] bg-red-200 md:w-48 rounded-full w-full">
+              <button className="flex gap-2 justify-center items-center text-secondary px-[16px] py-[12px] bg-secondary bg-opacity-20 md:w-48 rounded-full w-full">
                 All Opportunities <IoIosArrowDown />
               </button>
             </div>
