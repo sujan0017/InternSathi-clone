@@ -1,13 +1,18 @@
-import { PiCopyrightLight } from "react-icons/pi";
 import Logo from "./Logo";
 import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Universe from "./Universe";
+import { GiArrowWings } from "react-icons/gi";
 
 function Footer() {
   return (
-    <>
-      <footer className="w-full py-16 bg-[#17171f] flex flex-col items-center">
+    <section className="relative w-full  bg-[#080d37]">
+      <div className="absolute top-0 bottom-0 z-10 w-full">
+        <Universe />
+      </div>
+
+      <footer className="w-full py-16  flex flex-col items-center">
         <div className="w-full text-white px-5 2xl:px-[142px]">
           <div className="w-full grid grid-col-1  lg:grid-cols-7 gap-8 lg:gap-5 justify-center  pb-16">
             <div className="lg:col-span-2 w-full flex flex-col items-center lg:items-start gap-6 ">
@@ -74,13 +79,13 @@ function Footer() {
 
         <div className="border-b-2 w-full"></div>
 
-        <section>
+        <div>
           <p className=" text-center text-white  mt-10">
             2024 All Reserved © InternSathi Edtech Pvt. Ltd.
           </p>
-        </section>
+        </div>
       </footer>
-    </>
+    </section>
   );
 }
 
