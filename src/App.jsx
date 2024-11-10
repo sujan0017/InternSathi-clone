@@ -18,6 +18,7 @@ import InstituteRegister from "./pages/auth/InstituteRegister";
 import InternshipDetails from "./pages/internships/InternshipDetails";
 import TermsAndCondition from "./pages/TermsAndCondition";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   const router = createBrowserRouter(
@@ -39,6 +40,7 @@ function App() {
 
         <Route path="/terms-and-condition" element={<TermsAndCondition />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/about-us" element={<AboutUs />} />
 
 
 

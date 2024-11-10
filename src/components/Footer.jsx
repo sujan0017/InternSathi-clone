@@ -37,7 +37,7 @@ function Footer() {
           </div>
           <div className="flex flex-col items-center lg:items-start gap-2">
             <h4 className="font-bold mb-2 ">About Internsathi</h4>
-            <Link className="hover:underline text-sm">About us</Link>
+            <Link to='/about-us' className="hover:underline text-sm">About us</Link>
             <Link className="hover:underline text-sm">Our Services</Link>
             <Link className="hover:underline text-sm">Our Blogs</Link>
             <Link className="hover:underline text-sm">Contact us</Link>
