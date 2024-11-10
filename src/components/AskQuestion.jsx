@@ -4,7 +4,10 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 function AskQuestion() {
   return (
-    <section className=" w-full px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 bg-secondaryBg ">
+    <section
+      id="faq"
+      className=" w-full px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 bg-secondaryBg "
+    >
       <h5 className="text-[30px] font-semibold ">Frequently Asked Questions</h5>
       <p className=" text-fontColor text-sm">
         Still you have any questions? Contact our Team via{" "}
@@ -64,7 +67,11 @@ export function AskQuestionCart({ title, description }) {
         {title}
         {showPara ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </h3>
-      <p className={`${showPara ? "block" : "hidden"} pt-2 text-[15px] text-fontColor`}>
+      <p
+        className={`${
+          showPara ? "block" : "hidden"
+        } pt-2 text-[15px] text-fontColor`}
+      >
         {description}
       </p>
     </div>

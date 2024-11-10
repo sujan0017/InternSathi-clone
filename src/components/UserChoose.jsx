@@ -36,7 +36,7 @@ export function UserChooseCart({ title, description, btn, imgLink, textColor='te
         <h2 className={`text-${textColor} text-2xl font-bold` }>{title}</h2>
         <p className={`text-${textColor} text-sm pr-10 xl:pr-40`}>{description}</p>
         <div>
-          <button className="bg-white text-secondaryDark rounded-lg py-2 px-4 mt-3 font-semibold  text-sm">
+          <button className="bg-white text-secondary rounded-lg py-2 px-4 mt-3 font-semibold  text-sm">
             {btn}
           </button>
         </div>

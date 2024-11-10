@@ -65,7 +65,7 @@ function Header() {
 
               <button
                 onClick={() => setRegisterModal(!registerModal)}
-                className=" px-3 py-[4px] bg-[#0071cd] rounded-lg flex gap-1 items-center text-white hover:drop-shadow-2xl hover:shadow-blue-100"
+                className=" px-3 py-2 bg-[#0071cd] rounded-lg flex gap-1 items-center text-white"
               >
                 Register <GoTriangleDown />
               </button>

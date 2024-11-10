@@ -5,6 +5,10 @@ body {
   letter-spacing: 0.2px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .footerGradient {
   background: rgb(2, 0, 36);
   background: linear-gradient(

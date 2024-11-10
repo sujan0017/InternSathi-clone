@@ -43,20 +43,18 @@ export function HomeInternshipCart() {
       <div className="size-16 bg-black rounded-full">
         <img src="" alt="" />
       </div>
-      <h4 className="text-xl ">
-        Data Entry intern with Photoshop Skills
-      </h4>
-      <p className="text-sm uppercase">Intetnship</p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
-        suscipit?
+      <h4 className="text-xl font-medium ">Mern stack developers</h4>
+      <p className="text-sm uppercase text-secondary">Intetnship</p>
+      <p className="text-sm">
+        <span className=" font-medium">Lorem ipsum</span> dolor sit amet
+        consectetur adipisicing elit. Dolore, suscipit?
       </p>
-      <div>
+      <div className="flex gap-3 my-2">
         <HomeInternshipBtn />
         <HomeInternshipBtn />
         <HomeInternshipBtn />
       </div>
-      <Link className="text-secondary font-semibold text-l flex justify-center items-center ">
+      <Link className="text-secondary font-semibold text-l flex justify-center items-center pl-1 ">
         Apply Now <IoIosArrowRoundForward />{" "}
       </Link>
     </div>
@@ -65,14 +63,17 @@ export function HomeInternshipCart() {
 
 export function HomeInternshipBtnActive() {
   return (
-    <button className="bg-secondary text-white px-4 py-2 rounded-xl">
+    <button className="bg-secondary text-white px-4 py-2 rounded-xl text-xs ">
       featured HomeInternship
     </button>
   );
 }
-export function HomeInternshipBtn({ title = "Default" , href }) {
+export function HomeInternshipBtn({ title = "Default", href }) {
   return (
-    <NavLink to={href} className=" text-black px-4 py-2 rounded-xl border shadow-md">
+    <NavLink
+      to={href}
+      className=" text-black px-4 py-2 rounded-md border  text-xs bg-slate-100"
+    >
       {title}
     </NavLink>
   );
