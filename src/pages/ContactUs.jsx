@@ -1,4 +1,4 @@
-import AskQuestion from "../components/AskQuestion";
+import AskQuestion from "../components/home/AskQuestion";
 import { IoMail } from "react-icons/io5";
 import { FaLocationDot, FaPhoneFlip } from "react-icons/fa6";
 

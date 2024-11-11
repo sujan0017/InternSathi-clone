@@ -27,24 +27,39 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
 
-        <Route path="/internships" element={<Internships />} />
-        <Route path="/internships/details" element={<InternshipDetails />} />
+        <Route path="/internships">
+          <Route index element={<Internships />} />
+          <Route path="/internships/details" element={<InternshipDetails />} />
+        </Route>
+
+        {/* <Route path="/auth">
+          <Route path="/login" element={<Login />} />
+          <Route  path="/register-candidate" element={<CandidateRegister />} />
+          <Route  path="/register-recruiter" element={<RecruiterRegister />} />
+          <Route  path="/register-institute" element={<InstituteRegister />} />
+        </Route> */}
 
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/browse-events" element={<BrowseEvents />} />
 
         <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register-candidate" element={<CandidateRegister />} />
-        <Route path="/auth/register-recruiter" element={<RecruiterRegister />} />
-        <Route path="/auth/register-institute" element={<InstituteRegister />} />
-
+        <Route
+          path="/auth/register-candidate"
+          element={<CandidateRegister />}
+        />
+        <Route
+          path="/auth/register-recruiter"
+          element={<RecruiterRegister />}
+        />
+        <Route
+          path="/auth/register-institute"
+          element={<InstituteRegister />}
+        />
 
         <Route path="/terms-and-condition" element={<TermsAndCondition />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
-
-
 
       </Route>
     )

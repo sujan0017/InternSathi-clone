@@ -1,5 +1,5 @@
-import UserChoose from "../components/UserChoose";
-import HomeContact from "../components/HomeContact";
+import UserChoose from "../components/home/UserChoose";
+import HomeContact from "../components/home/HomeContact";
 import { HiShoppingBag } from "react-icons/hi";
 import { BsFillBuildingsFill, BsPeopleFill } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";

@@ -44,7 +44,7 @@ function JobsSort() {
         </button>
 
         <div
-          className={`bg-white w-[500px] p-2 rounded-xl absolute top-14 flex flex-col justify-center  ${
+          className={`bg-white border-2 shadow-sm w-[500px] p-4 rounded-xl absolute top-14 flex flex-col justify-center  ${
             showSortList ? "block" : "hidden"
           }  `}
         >
@@ -58,7 +58,7 @@ function JobsSort() {
             <span className=" p-2  border rounded-lg ">Newest</span>
             <span className=" p-2  border rounded-lg ">Newest</span>
           </div>
-          <button className="bg-gray-300 text-secondary py-1 mt-5 rounded-md ">
+          <button className="bg-gray-200 text-secondary py-2 mt-5 rounded-md ">
             Show Results
           </button>
         </div>

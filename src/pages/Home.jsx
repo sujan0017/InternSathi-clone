@@ -1,11 +1,11 @@
-import UserChoose from "../components/UserChoose";
-import Hero from "../components/Hero";
-import Help from "../components/Help";
-import Blog from "../components/Blog";
-import AskQuestion from "../components/AskQuestion";
-import HomeContact from "../components/HomeContact";
-import DownloadApp from "../components/DownloadApp";
-import HomeInternship from "../components/HomeInternship";
+import UserChoose from "../components/home/UserChoose";
+import Hero from "../components/home/Hero";
+import Help from "../components/home/Help";
+import Blog from "../components/home/Blog";
+import AskQuestion from "../components/home/AskQuestion";
+import HomeContact from "../components/home/HomeContact";
+import DownloadApp from "../components/home/DownloadApp";
+import HomeInternship from "../components/home/HomeInternship";
 
 function Home() {
   return (
