@@ -1,12 +1,24 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { BsChatDots } from "react-icons/bs";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-function AskQuestion() {
+// eslint-disable-next-line react/prop-types
+function AskQuestion({
+  firstTitle,
+  secondTitle,
+  thirdTitle,
+  fourthTitle,
+  firstDescription,
+  secondDescription,
+  thirdDescription,
+  fourthDescription,
+  backgroundColor = 'white'
+}) {
   return (
     <section
       id="faq"
-      className=" w-full px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 bg-secondaryBg "
+      className={`bg-${backgroundColor} w-full px-5 2xl:px-[142px] py-[56px] flex flex-col items-center gap-3 `}
     >
       <h5 className="text-[30px] font-semibold ">Frequently Asked Questions</h5>
       <p className=" text-fontColor text-sm">
@@ -26,26 +38,15 @@ function AskQuestion() {
           </button>
         </div>
         <div className="w-full flex flex-col gap-4 ">
+          <AskQuestionCart title={firstTitle} description={firstDescription} />
           <AskQuestionCart
-            title={`What Benefits does the Internsathi Offer?`}
-            description={`InternSathi offers various features from candidate listing, company
-        listing, Applicant Tracking System, Interview Scheduling, candidate
-        export, application deadline, apply with LinkedIn, email alert,
-        Internship Alert, Profile Builder, Resume Builder, Resume Manager,
-        Social App Login and many more.`}
+            title={secondTitle}
+            description={secondDescription}
           />
+          <AskQuestionCart title={thirdTitle} description={thirdDescription} />
           <AskQuestionCart
-            title={`How will the department contact me?`}
-            description={`The department will primarily communicate with you through the email address and the phone you provided during the application process. Please ensure that your email is regularly monitored and the phone number is correct.`}
-          />
-          <AskQuestionCart
-            title={`How do I apply for a Internship opening?`}
-            description={`To apply for an internship opening, first, create an account on internsathi.com. Browse through available internships, select one aligning with your interests, and follow the specified application instructions to submit your application. Good luck!`}
-          />
-          <AskQuestionCart
-            title={`How do I know if I am shortlisted?`}
-            description={`How do I know if I am shortlisted?
-After submitting your application, we will notify shortlisted candidates via email or in-app notification. Please regularly check your inbox, including spam folders in email, for updates on your application status.`}
+            title={fourthTitle}
+            description={fourthDescription}
           />
         </div>
       </div>

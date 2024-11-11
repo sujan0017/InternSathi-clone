@@ -40,7 +40,7 @@ function Footer() {
             <Link to='/about-us' className="hover:underline text-sm">About us</Link>
             <Link className="hover:underline text-sm">Our Services</Link>
             <Link className="hover:underline text-sm">Our Blogs</Link>
-            <Link className="hover:underline text-sm">Contact us</Link>
+            <Link to='/contact-us' className="hover:underline text-sm">Contact us</Link>
           </div>
           <div className="flex flex-col  gap-2 items-center lg:items-start">
             <h4 className="font-bold mb-2 ">For Candidates</h4>
