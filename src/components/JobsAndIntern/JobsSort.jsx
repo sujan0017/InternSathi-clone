@@ -1,37 +1,41 @@
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 function JobsSort() {
-  const [showInternList, setShowInternList] = useState(false);
   const [showSortList, setShowSortList] = useState(false);
 
-  const opportunities = ["All Opportunities", "Event", "internship", "Join"];
   return (
-    <section className=" w-full px-5 2xl:px-[142px] pt-[88px] pb-[24px] flex items-center gap-6 shadow-md">
-
-      <div className={`relative`}>
-        <button
-          onClick={() => setShowInternList(!showInternList)}
-          className="flex justify-center items-center gap-10 border-2 px-3 py-2 bg-secondary rounded-xl text-white  border-secondary"
+    <section className={`w-full px-5 flex items-center gap-6 shadow-md`}>
+      <select
+        name=""
+        id=""
+        className="border-2 px-5 py-2 bg-secondary rounded-md text-white  "
+        // onChange={(e) => setProductsLimit(e.target.value)}
+      >
+        <option
+          className="py-2 bg-white hover:bg-secondary hover:bg-opacity-30  text-black"
+          value="all opportunities"
         >
-          {opportunities[0]} <MdKeyboardArrowDown />
-        </button>
-        <div
-          className={`bg-white w-[174px] p-2 rounded-xl absolute top-14 ${
-            showInternList ? "block" : "hidden"
-          }  `}
+          All Opportunities
+        </option>
+        <option
+          className="py-2 bg-white hover:bg-secondary hover:bg-opacity-30  text-black mt-2"
+          value="Event"
         >
-          {opportunities.map((list) => {
-            return (
-              <ul
-                key={list}
-                className="py-1 px-2 hover:bg-secondaryBg hover:text-secondary  hover:cursor-pointer"
-              >
-                {list}
-              </ul>
-            );
-          })}
-        </div>
-      </div>
+          Events
+        </option>
+        <option
+          className="py-2 bg-white hover:bg-secondary hover:bg-opacity-30  text-black mt-2"
+          value="internship"
+        >
+          Internship
+        </option>
+        <option
+          className="py-2 bg-white hover:bg-secondary hover:bg-opacity-30  text-black mt-2"
+          value="job"
+        >
+          Job
+        </option>
+      </select>
 
       <div className="border-r-2 border-fontColor h-[50px] border-opacity-10 hidden md:block"></div>
 
@@ -63,7 +67,6 @@ function JobsSort() {
           </button>
         </div>
       </div>
-      
     </section>
   );
 }

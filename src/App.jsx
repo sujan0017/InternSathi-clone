@@ -20,6 +20,7 @@ import TermsAndCondition from "./pages/TermsAndCondition";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   const router = createBrowserRouter(
@@ -30,6 +31,11 @@ function App() {
         <Route path="/internships">
           <Route index element={<Internships />} />
           <Route path="/internships/details" element={<InternshipDetails />} />
+        </Route>
+
+        <Route path="/dashboard">
+          <Route index element={<Dashboard />} />
+        
         </Route>
 
         {/* <Route path="/auth">

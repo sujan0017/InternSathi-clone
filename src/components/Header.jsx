@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 import navMenu from "../constants/navMenu";
-import { GoTriangleDown } from "react-icons/go";
+import { GoPerson, GoTriangleDown } from "react-icons/go";
 import { HiMenu, HiX } from "react-icons/hi"; // Hamburger and close icons
 import { useState } from "react";
 import Logo from "./Logo";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoHomeOutline } from "react-icons/io5";
+import { CiLogout } from "react-icons/ci";
 
 function Header() {
   const [isHovered, setIsHovered] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
+  const [profileMenu, setProfileMenu] = useState(true);
+  const isAuth = true;
 
   return (
     <header className="w-full h-[64px] bg-newPrimary flex justify-center items-center fixed z-20">
@@ -55,55 +60,131 @@ function Header() {
               </div>
             )}
           </div>
-          <div className="flex gap-5 items-center">
-            <Link to="auth/login" className="text-white  hover:text-secondary">
-              Login
-            </Link>
-            <div className="relative">
 
-
-
-              <button
-                onClick={() => setRegisterModal(!registerModal)}
-                className=" px-3 py-2 bg-[#0071cd] rounded-lg flex gap-1 items-center text-white"
-              >
-                Register <GoTriangleDown />
-              </button>
-
-
-
-              {registerModal && (
+          {isAuth ? (
+            <div
+              onMouseEnter={() => setProfileMenu(true)}
+              onMouseLeave={() => setProfileMenu(false)}
+              className="  hover:cursor-pointer relative  "
+            >
+              <div className="px-3 py-2 flex gap-2  items-center">
+                <div className="w-8 h-8  rounded-full">
+                  <img
+                    src="https://internsathi.com/_next/image?url=https%3A%2F%2Fapi.internsathi.com%2Fuploads%2F1730115089799-94261846.png&w=128&q=75"
+                    alt=""
+                    className="rounded-full"
+                  />
+                </div>
+                <p className="text-white">Sujan Bk</p>
+                <IoMdArrowDropdown className="text-white" />
+              </div>
+              {profileMenu && (
                 <div
-                  onMouseEnter={() => setRegisterModal(true)}
-                  onMouseLeave={() => setRegisterModal(false)}
-                  className="w-48  bg-slate-100 absolute top-10 right-[2px] rounded-lg flex flex-col  opacity-[95%]"
+                  onMouseEnter={() => setProfileMenu(true)}
+                  onMouseLeave={() => setProfileMenu(false)}
+                  className="absolute top-12 right-0 bg-white rounded-md  shadow-lg"
                 >
                   <Link
-                    className="hover:bg-slate-300 px-2 py-2 rounded-t text-sm"
-                    to="auth/register-candidate"
+                    to="/dashboard"
+                    className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
                   >
-                    Register as a candidate
+                    <IoHomeOutline /> Dashboard
                   </Link>
-                  <Link
-                    className="hover:bg-slate-300 px-2 py-2 text-sm "
-                    to="auth/register-recruiter"
-                  >
-                    Register as recruiter
-                  </Link>
-                  <Link
-                    className="hover:bg-slate-300 px-2 py-2 rounded-b text-sm"
-                    to="auth/register-institute"
-                  >
-                    Register as an institute
-                  </Link>
+                  <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
+                    <GoPerson /> Profile
+                  </p>
+                  <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
+                    <CiLogout /> Logout
+                  </p>
                 </div>
               )}
             </div>
-          </div>
+          ) : (
+            <div className="flex gap-5 items-center">
+              <Link
+                to="auth/login"
+                className="text-white  hover:text-secondary"
+              >
+                Login
+              </Link>
+              <div className="relative">
+                <button
+                  onClick={() => setRegisterModal(!registerModal)}
+                  className=" px-3 py-2 bg-[#0071cd] rounded-lg flex gap-1 items-center text-white"
+                >
+                  Register <GoTriangleDown />
+                </button>
+
+                {registerModal && (
+                  <div
+                    onMouseEnter={() => setRegisterModal(true)}
+                    onMouseLeave={() => setRegisterModal(false)}
+                    className="w-48  bg-slate-100 absolute top-10 right-[2px] rounded-lg flex flex-col  opacity-[95%]"
+                  >
+                    <Link
+                      className="hover:bg-slate-300 px-2 py-2 rounded-t text-sm"
+                      to="auth/register-candidate"
+                    >
+                      Register as a candidate
+                    </Link>
+                    <Link
+                      className="hover:bg-slate-300 px-2 py-2 text-sm "
+                      to="auth/register-recruiter"
+                    >
+                      Register as recruiter
+                    </Link>
+                    <Link
+                      className="hover:bg-slate-300 px-2 py-2 rounded-b text-sm"
+                      to="auth/register-institute"
+                    >
+                      Register as an institute
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Hamburger Icon for Mobile */}
-        <div className="flex md:hidden">
+        <div className="flex md:hidden relative">
+          <div
+            onMouseEnter={() => setProfileMenu(true)}
+            onMouseLeave={() => setProfileMenu(false)}
+            className={`${isAuth ? "block" : "hidden"} hover:cursor-pointer `}
+          >
+            <div className="px-3 py-2 flex gap-1  items-center">
+              <div className="w-7 h-7  rounded-full">
+                <img
+                  src="https://internsathi.com/_next/image?url=https%3A%2F%2Fapi.internsathi.com%2Fuploads%2F1730115089799-94261846.png&w=128&q=75"
+                  alt=""
+                  className="rounded-full"
+                />
+              </div>
+              <IoMdArrowDropdown className="text-white" />
+            </div>
+            {profileMenu && (
+              <div
+                onMouseEnter={() => setProfileMenu(true)}
+                onMouseLeave={() => setProfileMenu(false)}
+                className="absolute top-12 right-0 bg-white rounded-md  shadow-lg"
+              >
+                <Link
+                  to="/dashboard"
+                  className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
+                >
+                  <IoHomeOutline /> Dashboard
+                </Link>
+                <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
+                  <GoPerson /> Profile
+                </p>
+                <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
+                  <CiLogout /> Logout
+                </p>
+              </div>
+            )}
+          </div>
+
           <button onClick={() => setMenuOpen(!menuOpen)}>
             <HiMenu className="text-white text-2xl" />
           </button>
@@ -119,6 +200,7 @@ function Header() {
         >
           <div className="flex justify-between items-center w-full mb-4">
             <Logo width={160} />
+
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <HiX className="text-white text-2xl" />
             </button>
@@ -146,8 +228,12 @@ function Header() {
             </button>
 
             {isHovered && (
-              <div className="w-36 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-12 z-10">
-                 <Link
+              <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="w-36 p-2 bg-slate-100 rounded-lg flex flex-col gap-2 opacity-[95%] mt-2 absolute top-12 z-10"
+              >
+                <Link
                   className="hover:bg-secondary hover:bg-opacity-10 hover:rounded-md px-2 py-1 hover:text-secondary"
                   to="/"
                 >
@@ -163,7 +249,11 @@ function Header() {
             )}
           </div>
 
-          <div className="flex items-center justify-center gap-10 w-full mt-6 relative">
+          <div
+            className={`${
+              isAuth ? "hidden" : "block"
+            } flex items-center justify-center gap-10 w-full mt-6 relative`}
+          >
             <Link
               className="text-white font-semibold hover:text-secondary  "
               to="auth/login"

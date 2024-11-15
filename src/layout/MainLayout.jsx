@@ -1,15 +1,21 @@
-import { Outlet } from "react-router-dom"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
+import { Outlet, useLocation } from "react-router-dom";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 function MainLayout() {
+  const location = useLocation();
+
+  const dashboard = [`/dashboard`];
+
+  const shouldHideHeaderFooter = dashboard.includes(location.pathname);
+
   return (
     <>
-      <Header />
+      {!shouldHideHeaderFooter && <Header />}
       <Outlet />
-      <Footer />
+      {!shouldHideHeaderFooter && <Footer />}
     </>
-  )
+  );
 }
 
-export default MainLayout
+export default MainLayout;

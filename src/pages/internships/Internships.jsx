@@ -3,10 +3,14 @@ import JobsSort from "../../components/JobsAndIntern/JobsSort";
 
 function Internships() {
   return (
-    <>
-      <JobsSort />
-      <JobsSection />
-    </>
+    <section className="2xl:px-[142px]">
+      <div className="pt-[83px]  pb-[24px] ">
+        <JobsSort />
+      </div>
+      <div className="px-5">
+        <JobsSection />
+      </div>
+    </section>
   );
 }
 
