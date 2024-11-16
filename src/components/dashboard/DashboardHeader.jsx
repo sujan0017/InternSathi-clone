@@ -10,6 +10,7 @@ import { RiMenu2Line } from "react-icons/ri";
 
 function DashboardHeader({ setMenuOpen, menuOpen }) {
   const [profileMenu, setProfileMenu] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   return (
     <div className="py-4 border-b-2 flex items-center justify-between px-5 ">
       <div>
@@ -18,11 +19,23 @@ function DashboardHeader({ setMenuOpen, menuOpen }) {
         </button>
       </div>
       <div className="flex items-center gap-7">
-        <div>
-          <button className="size-7 bg-slate-200 flex items-center justify-center p-1 rounded-full">
+        <div className="relative">
+          <button
+            onClick={() => setShowNotification(!showNotification)}
+            className="size-7 bg-slate-200 flex items-center justify-center p-1 rounded-full"
+          >
             <BsBellFill />
           </button>
-          <div></div>
+          <div
+            className={` ${
+              showNotification ? "block" : "hidden"
+            } w-[480px] h-20 bg-white border rounded-md absolute right-0 top-9  p-4`}
+          >
+            <div className="flex items-center justify-between">
+              <h5 className="font-normal">Notification</h5>
+              <p className="text-secondary text-sm">Mark all as Read</p>
+            </div>
+          </div>
         </div>
         <div
           onMouseEnter={() => setProfileMenu(true)}

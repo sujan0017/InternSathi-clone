@@ -12,7 +12,7 @@ function Header() {
   const [isHovered, setIsHovered] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
-  const [profileMenu, setProfileMenu] = useState(true);
+  const [profileMenu, setProfileMenu] = useState(false);
   const isAuth = true;
 
   return (
