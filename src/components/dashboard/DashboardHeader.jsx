@@ -57,7 +57,7 @@ function DashboardHeader({ setMenuOpen, menuOpen }) {
             <div
               onMouseEnter={() => setProfileMenu(true)}
               onMouseLeave={() => setProfileMenu(false)}
-              className="absolute top-12 right-0 bg-white rounded-md  shadow-lg"
+              className="absolute top-12 right-0 bg-white rounded-md  shadow-lg z-10"
             >
               <Link
                 to="/dashboard"
