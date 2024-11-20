@@ -29,7 +29,7 @@ function DashboardHeader({ setMenuOpen, menuOpen }) {
           <div
             className={` ${
               showNotification ? "block" : "hidden"
-            } w-[480px] h-20 bg-white border rounded-md absolute right-0 top-9  p-4`}
+            } min-w-[480px] h-20 bg-white border rounded-md absolute right-0 top-9  p-4 `}
           >
             <div className="flex items-center justify-between">
               <h5 className="font-normal">Notification</h5>
