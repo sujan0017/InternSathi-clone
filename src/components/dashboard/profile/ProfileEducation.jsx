@@ -72,7 +72,7 @@ function ProfileEducation() {
             </div>
 
             <form className={`${showDetails ? "block" : "hidden"} `}>
-              <div className="grid grid-cols-2 gap-5 mt-5">
+              <div className="grid sm:grid-cols-2 gap-5 mt-5">
                 <div className="flex flex-col gap-1 mt-1">
                   <div className="relative ">
                     <label className="text-sm">
@@ -186,7 +186,7 @@ function ProfileEducation() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-5 mt-3">
+              <div className="grid sm:grid-cols-2 gap-5 mt-3">
                 <div className="flex flex-col gap-1">
                   <label className="text-sm">
                     Start Date<span className="text-red-500">*</span>

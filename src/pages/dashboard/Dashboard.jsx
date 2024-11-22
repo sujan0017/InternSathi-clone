@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DashboardHeader from "../../components/dashboard/DashboardHeader";
+import DashboardHeader from "./DashboardHeader";
 import Logo from "../../components/Logo";
 import { Link } from "react-router-dom";
 import {
@@ -16,32 +16,32 @@ import {
 } from "react-icons/pi";
 import { CgAddR } from "react-icons/cg";
 import { TbLogout2 } from "react-icons/tb";
-import DashboardHome from "../../components/dashboard/DashboardHome";
+import DashboardHome from "./DashboardHome";
 import { IoIosArrowDown } from "react-icons/io";
-import SearchOpportunities from "../../components/dashboard/SearchOpportunities";
-import MyProfile from "../../components/dashboard/MyProfile";
-import JobApplication from "../../components/dashboard/JobApplication";
-import EventApplication from "../../components/dashboard/EventApplication";
-import Bookmarks from "../../components/dashboard/Bookmarks";
-import DashboardRequest from "../../components/dashboard/DashboardRequest";
-import DashboardContact from "../../components/dashboard/DashboardContact";
-import DashboardHistory from "../../components/dashboard/DashboardHistory";
-import DashboardSetting from "../../components/dashboard/DashboardSetting";
+import SearchOpportunities from "./SearchOpportunities";
+import MyProfile from "./MyProfile";
+import JobApplication from "./JobApplication";
+import EventApplication from "./EventApplication";
+import Bookmarks from "./Bookmarks";
+import DashboardRequest from "./DashboardRequest";
+import DashboardContact from "./DashboardContact";
+import DashboardHistory from "./DashboardHistory";
+import DashboardSetting from "./DashboardSetting";
 
-function Dashboard() {
+function Dashboard({activeButton, handleButtonClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showApplications, setShowApplications] = useState(false);
   const [showContactMenu, setShowContactMenu] = useState(false);
 
-  const [activeButton, setActiveButton] = useState("dashboard");
+  // const [activeButton, setActiveButton] = useState("dashboard");
 
-  const handleButtonClick = (title) => {
-    setActiveButton(title);
-  };
+  // const handleButtonClick = (title) => {
+  //   setActiveButton(title);
+  // };
 
   return (
     <section className="relative min-h-screen ">
-      <DashboardHeader setMenuOpen={setMenuOpen} menuOpen={menuOpen} />
+      <DashboardHeader setMenuOpen={setMenuOpen} menuOpen={menuOpen} handleButtonClick={handleButtonClick} />
 
       {/* PC Menu */}
       <div
@@ -55,6 +55,7 @@ function Dashboard() {
         <div className="w-full h-full flex flex-col justify-between items-center ">
           <div className="mt-5  w-full h-full">
             <Link
+              to="/dashboard/candidate/"
               onClick={() => handleButtonClick("dashboard")}
               className={`${
                 activeButton === "dashboard"
@@ -67,6 +68,7 @@ function Dashboard() {
             </Link>
 
             <Link
+              to={"/dashboard/candidate/search-opportunities"}
               onClick={() => handleButtonClick("searchOpportunities")}
               className={`${
                 activeButton === "searchOpportunities"
@@ -84,6 +86,7 @@ function Dashboard() {
             </Link>
 
             <Link
+              to={"/dashboard/candidate/profile"}
               onClick={() => handleButtonClick("profile")}
               className={`${
                 activeButton === "profile"
@@ -108,6 +111,7 @@ function Dashboard() {
               </div>
               <div className={showApplications ? "block" : "hidden"}>
                 <Link
+                  to={"/dashboard/candidate/job-application"}
                   onClick={() => handleButtonClick("jobApplication")}
                   className={`${
                     activeButton === "jobApplication"
@@ -120,6 +124,7 @@ function Dashboard() {
                   Job Application
                 </Link>
                 <Link
+                  to={"/dashboard/candidate/event-application"}
                   onClick={() => handleButtonClick("eventApplication")}
                   className={`${
                     activeButton === "eventApplication"
@@ -134,22 +139,28 @@ function Dashboard() {
               </div>
             </div>
 
-            <Link onClick={() => handleButtonClick("bookmarks")}
-                  className={`${
-                    activeButton === "bookmarks"
-                      ? "bg-secondary bg-opacity-25 text-secondary "
-                      : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+            <Link
+              to={"/dashboard/candidate/bookmarks"}
+              onClick={() => handleButtonClick("bookmarks")}
+              className={`${
+                activeButton === "bookmarks"
+                  ? "bg-secondary bg-opacity-25 text-secondary "
+                  : "bg-white text-fontColor"
+              } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+            >
               <PiBookmarkSimpleLight className="text-xl" />
               Bookmarks
             </Link>
 
-            <Link onClick={() => handleButtonClick("request")}
-                  className={`${
-                    activeButton === "request"
-                      ? "bg-secondary bg-opacity-25 text-secondary "
-                      : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+            <Link
+              to={"/dashboard/candidate/request"}
+              onClick={() => handleButtonClick("request")}
+              className={`${
+                activeButton === "request"
+                  ? "bg-secondary bg-opacity-25 text-secondary "
+                  : "bg-white text-fontColor"
+              } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+            >
               <CgAddR className="text-xl" />
               Request
             </Link>
@@ -166,22 +177,28 @@ function Dashboard() {
                 <IoIosArrowDown className="pr-2 text-xl" />
               </div>
               <div className={showContactMenu ? "block" : "hidden"}>
-                <Link onClick={() => handleButtonClick("contact")}
+                <Link
+                  to={"/dashboard/candidate/contact"}
+                  onClick={() => handleButtonClick("contact")}
                   className={`${
                     activeButton === "contact"
                       ? "bg-secondary bg-opacity-25 text-secondary "
                       : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+                >
                   {" "}
                   <PiDotThin className="text-3xl" />
                   Contact
                 </Link>
-                <Link onClick={() => handleButtonClick("history")}
+                <Link
+                  to={"/dashboard/candidate/history"}
+                  onClick={() => handleButtonClick("history")}
                   className={`${
                     activeButton === "history"
                       ? "bg-secondary bg-opacity-25 text-secondary "
                       : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+                >
                   {" "}
                   <PiDotThin className="text-3xl" />
                   History
@@ -189,12 +206,15 @@ function Dashboard() {
               </div>
             </div>
 
-            <Link onClick={() => handleButtonClick("setting")}
-                  className={`${
-                    activeButton === "setting"
-                      ? "bg-secondary bg-opacity-25 text-secondary "
-                      : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+            <Link
+              to={"/dashboard/candidate/setting"}
+              onClick={() => handleButtonClick("setting")}
+              className={`${
+                activeButton === "setting"
+                  ? "bg-secondary bg-opacity-25 text-secondary "
+                  : "bg-white text-fontColor"
+              } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+            >
               <IoSettingsOutline className="text-xl" />
               Setting
             </Link>
@@ -222,6 +242,7 @@ function Dashboard() {
         <div className="w-full h-full flex flex-col justify-between items-center ">
           <div className="mt-5  w-full h-full">
             <Link
+              to="/dashboard/candidate/"
               onClick={() => handleButtonClick("dashboard")}
               className={`${
                 activeButton === "dashboard"
@@ -234,6 +255,7 @@ function Dashboard() {
             </Link>
 
             <Link
+              to={"/dashboard/candidate/search-opportunities"}
               onClick={() => handleButtonClick("searchOpportunities")}
               className={`${
                 activeButton === "searchOpportunities"
@@ -251,6 +273,7 @@ function Dashboard() {
             </Link>
 
             <Link
+              to={"/dashboard/candidate/profile"}
               onClick={() => handleButtonClick("profile")}
               className={`${
                 activeButton === "profile"
@@ -275,6 +298,7 @@ function Dashboard() {
               </div>
               <div className={showApplications ? "block" : "hidden"}>
                 <Link
+                  to={"/dashboard/candidate/job-application"}
                   onClick={() => handleButtonClick("jobApplication")}
                   className={`${
                     activeButton === "jobApplication"
@@ -287,6 +311,7 @@ function Dashboard() {
                   Job Application
                 </Link>
                 <Link
+                  to={"/dashboard/candidate/event-application"}
                   onClick={() => handleButtonClick("eventApplication")}
                   className={`${
                     activeButton === "eventApplication"
@@ -301,22 +326,28 @@ function Dashboard() {
               </div>
             </div>
 
-            <Link onClick={() => handleButtonClick("bookmarks")}
-                  className={`${
-                    activeButton === "bookmarks"
-                      ? "bg-secondary bg-opacity-25 text-secondary "
-                      : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+            <Link
+              to={"/dashboard/candidate/bookmarks"}
+              onClick={() => handleButtonClick("bookmarks")}
+              className={`${
+                activeButton === "bookmarks"
+                  ? "bg-secondary bg-opacity-25 text-secondary "
+                  : "bg-white text-fontColor"
+              } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+            >
               <PiBookmarkSimpleLight className="text-xl" />
               Bookmarks
             </Link>
 
-            <Link onClick={() => handleButtonClick("request")}
-                  className={`${
-                    activeButton === "request"
-                      ? "bg-secondary bg-opacity-25 text-secondary "
-                      : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+            <Link
+              to={"/dashboard/candidate/request"}
+              onClick={() => handleButtonClick("request")}
+              className={`${
+                activeButton === "request"
+                  ? "bg-secondary bg-opacity-25 text-secondary "
+                  : "bg-white text-fontColor"
+              } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+            >
               <CgAddR className="text-xl" />
               Request
             </Link>
@@ -333,22 +364,28 @@ function Dashboard() {
                 <IoIosArrowDown className="pr-2 text-xl" />
               </div>
               <div className={showContactMenu ? "block" : "hidden"}>
-                <Link onClick={() => handleButtonClick("contact")}
+                <Link
+                  to={"/dashboard/candidate/contact"}
+                  onClick={() => handleButtonClick("contact")}
                   className={`${
                     activeButton === "contact"
                       ? "bg-secondary bg-opacity-25 text-secondary "
                       : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+                >
                   {" "}
                   <PiDotThin className="text-3xl" />
                   Contact
                 </Link>
-                <Link onClick={() => handleButtonClick("history")}
+                <Link
+                  to={"/dashboard/candidate/history"}
+                  onClick={() => handleButtonClick("history")}
                   className={`${
                     activeButton === "history"
                       ? "bg-secondary bg-opacity-25 text-secondary "
                       : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+                >
                   {" "}
                   <PiDotThin className="text-3xl" />
                   History
@@ -356,12 +393,15 @@ function Dashboard() {
               </div>
             </div>
 
-            <Link onClick={() => handleButtonClick("setting")}
-                  className={`${
-                    activeButton === "setting"
-                      ? "bg-secondary bg-opacity-25 text-secondary "
-                      : "bg-white text-fontColor"
-                  } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}>
+            <Link
+              to={"/dashboard/candidate/setting"}
+              onClick={() => handleButtonClick("setting")}
+              className={`${
+                activeButton === "setting"
+                  ? "bg-secondary bg-opacity-25 text-secondary "
+                  : "bg-white text-fontColor"
+              } flex items-center justify-start gap-5 text-fontColor hover:text-secondary py-2 hover:bg-secondary hover:bg-opacity-15 px-2 rounded-md font-medium mt-1`}
+            >
               <IoSettingsOutline className="text-xl" />
               Setting
             </Link>
@@ -377,7 +417,7 @@ function Dashboard() {
       <div className="bg-secondaryBg h-[92vh]  md:ml-64 px-5 py-5 ">
         {activeButton === "dashboard" && <DashboardHome />}
         {activeButton === "searchOpportunities" && <SearchOpportunities />}
-        
+
         {activeButton === "profile" && <MyProfile />}
         {activeButton === "jobApplication" && <JobApplication />}
         {activeButton === "eventApplication" && <EventApplication />}

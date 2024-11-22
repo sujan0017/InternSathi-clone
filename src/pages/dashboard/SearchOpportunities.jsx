@@ -1,6 +1,6 @@
 import { IoSearchOutline } from "react-icons/io5";
-import JobsSort from "../JobsAndIntern/JobsSort";
-import JobsSection from "../JobsAndIntern/JobsSection";
+import JobsSort from "../../components/JobsAndIntern/JobsSort";
+import JobsSection from "../../components/JobsAndIntern/JobsSection";
 
 function SearchOpportunities() {
   return (

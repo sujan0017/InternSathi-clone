@@ -2,16 +2,20 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-function MainLayout() {
+function MainLayout({handleButtonClick}) {
   const location = useLocation();
 
-  const dashboard = [`/dashboard`];
+  // List of routes where the header and footer should be hidden
+  const dashboardRoutes = ["/dashboard/candidate"];
 
-  const shouldHideHeaderFooter = dashboard.includes(location.pathname);
+  // Check if the current route is in the list of dashboard routes
+  const shouldHideHeaderFooter = dashboardRoutes.some((route) =>
+    location.pathname.startsWith(route)
+  );
 
   return (
     <>
-      {!shouldHideHeaderFooter && <Header />}
+      {!shouldHideHeaderFooter && <Header handleButtonClick={handleButtonClick}/>}
       <Outlet />
       {!shouldHideHeaderFooter && <Footer />}
     </>

@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { IoIosArrowForward } from "react-icons/io";
-import { Link } from "react-router-dom";
 
-function JobApplication() {
+function EventApplication() {
   const applications = [
     {
       title: "Frontend Developer",
@@ -15,15 +13,7 @@ function JobApplication() {
     {
       title: "Backend Developer",
       company: "DevSolutions",
-      status: "Shortlisted",
-      location: "Kathmandu",
-      openings: 1,
-      appliedDate: "2024-11-10",
-    },
-    {
-      title: "Backend Developer",
-      company: "DevSolutions",
-      status: "Hired",
+      status: "Rejected",
       location: "Kathmandu",
       openings: 1,
       appliedDate: "2024-11-10",
@@ -39,16 +29,10 @@ function JobApplication() {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold">Internship/Job Applications</h2>
-      <p className="flex items-center gap-2 text-fontColor text-xs pt-2">
-        <Link to="/" className="text-black">
-          Dashboard
-        </Link>
-        <IoIosArrowForward /> internship/job application
-      </p>
+      <h2 className="text-2xl font-semibold">Event Application</h2>
 
       <div className="w-full flex items-center gap-5 mt-5">
-        {["All", "Pending", "Viewed", "Shortlisted", "Hired"].map((status) => (
+        {["All", "Pending", "Selected", "Rejected"].map((status) => (
           <p
             key={status}
             onClick={() => setFilter(status)}
@@ -63,8 +47,8 @@ function JobApplication() {
         ))}
       </div>
 
-      <div className="rounded-md border bg-white mt-5">
-        <div>
+      <div className="rounded-md border bg-white mt-5 overflow-y-scroll  lg:overflow-auto ">
+   \
           <table className="w-full">
             <thead>
               <tr className="border-b w-full">
@@ -84,7 +68,7 @@ function JobApplication() {
                   Openings
                 </th>
                 <th className="h-12 px-4 text-left align-middle font-medium">
-                  Applied Date
+                  Starting Date
                 </th>
               </tr>
             </thead>
@@ -125,10 +109,10 @@ function JobApplication() {
               )}
             </tbody>
           </table>
-        </div>
+       
       </div>
     </div>
   );
 }
 
-export default JobApplication;
+export default EventApplication;

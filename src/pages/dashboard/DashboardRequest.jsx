@@ -1,22 +1,25 @@
 import { useState } from "react";
+import { CgSearch } from "react-icons/cg";
 
-function EventApplication() {
+function DashboardRequest() {
   const applications = [
     {
-      title: "Frontend Developer",
-      company: "TechCorp",
-      status: "Pending",
-      location: "Remote",
-      openings: 2,
-      appliedDate: "2024-11-01",
+      name: "Frontend Developer",
+      type: "TechCorp",
+      status: "Degree",
+      createdAt: "2024-11-01",
     },
     {
-      title: "Backend Developer",
-      company: "DevSolutions",
-      status: "Rejected",
-      location: "Kathmandu",
-      openings: 1,
-      appliedDate: "2024-11-10",
+      name: "Backend Developer",
+      type: "DevSolutions",
+      status: "Language",
+      createdAt: "2024-11-10",
+    },
+    {
+      name: "Backend Developer",
+      type: "DevSolutions",
+      status: "Skill",
+      createdAt: "2024-11-10",
     },
   ];
 
@@ -29,10 +32,30 @@ function EventApplication() {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold">Event Application</h2>
+      <div className="flex justify-between items-start">
+        <h2 className="text-2xl font-medium">Custom Value Requests</h2>
+        <div className="relative w-60">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="text-sm p-3 border rounded-md w-full z-0 "
+          />
+          <span className="absolute top-3 right-3">
+            <CgSearch className="text-xl" />
+          </span>
+        </div>
+      </div>
 
       <div className="w-full flex items-center gap-5 mt-5">
-        {["All", "Pending", "Selected", "Rejected"].map((status) => (
+        {[
+          "All",
+          "Degree",
+          "Institute",
+          "Language",
+          "Sector",
+          "Skill",
+          "Firm",
+        ].map((status) => (
           <p
             key={status}
             onClick={() => setFilter(status)}
@@ -47,28 +70,22 @@ function EventApplication() {
         ))}
       </div>
 
-      <div className="rounded-md border bg-white mt-5">
-        <div>
+      <div className="rounded-md border bg-white mt-5 overflow-y-scroll  lg:overflow-auto ">
+     
           <table className="w-full">
             <thead>
               <tr className="border-b w-full">
                 <th className="h-12 px-4 text-left align-middle font-medium">
-                  Title
+                  Name
                 </th>
                 <th className="h-12 px-4 text-left align-middle font-medium">
-                  Company
+                  Type
                 </th>
                 <th className="h-12 px-4 text-left align-middle font-medium">
                   Status
                 </th>
                 <th className="h-12 px-4 text-left align-middle font-medium">
-                  Location
-                </th>
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Openings
-                </th>
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Starting Date
+                  Created At
                 </th>
               </tr>
             </thead>
@@ -76,12 +93,10 @@ function EventApplication() {
               {filteredApplications.length > 0 ? (
                 filteredApplications.map((app, index) => (
                   <tr key={index} className="border-b">
-                    <td className="p-4 text-sm">{app.title}</td>
-                    <td className="p-4 text-sm">{app.company}</td>
+                    <td className="p-4 text-sm">{app.name}</td>
+                    <td className="p-4 text-sm">{app.type}</td>
                     <td className="p-4 text-sm">{app.status}</td>
-                    <td className="p-4 text-sm">{app.location}</td>
-                    <td className="p-4 text-sm">{app.openings}</td>
-                    <td className="p-4 text-sm">{app.appliedDate}</td>
+                    <td className="p-4 text-sm">{app.createdAt}</td>
                   </tr>
                 ))
               ) : (
@@ -109,10 +124,10 @@ function EventApplication() {
               )}
             </tbody>
           </table>
-        </div>
+      
       </div>
     </div>
   );
 }
 
-export default EventApplication;
+export default DashboardRequest;

@@ -12,8 +12,8 @@ function Bookmarks() {
         <IoIosArrowForward /> Bookmarks
       </p>
 
-      <div className="rounded-md border bg-white mt-5">
-        <div>
+      <div className="rounded-md border bg-white mt-5 overflow-y-scroll  lg:overflow-auto ">
+       
           <table className="w-full">
             <thead>
               <tr className="border-b w-full">
@@ -58,7 +58,7 @@ function Bookmarks() {
               </tr>
             </tbody>
           </table>
-        </div>
+       
       </div>
     </div>
   );

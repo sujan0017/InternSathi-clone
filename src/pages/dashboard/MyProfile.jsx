@@ -12,15 +12,15 @@ import {
 import { MdRocketLaunch } from "react-icons/md";
 
 import { Link } from "react-router-dom";
-import ProfileAbout from "./profile/ProfileAbout";
-import ProfileEducation from "./profile/ProfileEducation";
-import ProfileProject from "./profile/ProfileProject";
-import ProfileExperience from "./profile/ProfileExperience";
-import ProfileSkills from "./profile/ProfileSkills";
-import ProfileAchievement from "./profile/ProfileAchievement";
-import ProfileTraining from "./profile/ProfileTraining";
-import ProfileLanguage from "./profile/ProfileLanguage";
-import ProfileEmailPhone from "./profile/ProfileEmailPhone";
+import ProfileAbout from "../../components/dashboard/profile/ProfileAbout";
+import ProfileEducation from "../../components/dashboard/profile/ProfileEducation";
+import ProfileProject from "../../components/dashboard/profile/ProfileProject";
+import ProfileExperience from "../../components/dashboard/profile/ProfileExperience";
+import ProfileSkills from "../../components/dashboard/profile/ProfileSkills";
+import ProfileAchievement from "../../components/dashboard/profile/ProfileAchievement";
+import ProfileTraining from "../../components/dashboard/profile/ProfileTraining";
+import ProfileLanguage from "../../components/dashboard/profile/ProfileLanguage";
+import ProfileEmailPhone from "../../components/dashboard/profile/ProfileEmailPhone";
 
 function MyProfile() {
   const [menu, setMenu] = useState("about");
@@ -138,7 +138,6 @@ function MyProfile() {
               Email and Phone
             </Link>
           </div>
-          
         </div>
 
         <div className="flex-1">

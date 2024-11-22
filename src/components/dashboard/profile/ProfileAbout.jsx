@@ -144,7 +144,8 @@ function ProfileAbout() {
       </div>
       
       <form className="flex  flex-col gap-5 mt-5 ">
-        <div className="grid grid-cols-2 gap-5">
+
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-1 mt-1 ">
             <label className="text-sm">
               First Name<span className="text-red-500">*</span>
@@ -165,7 +166,7 @@ function ProfileAbout() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-1 mt-1">
             <div className="relative ">
               <label className="text-sm">
@@ -224,7 +225,7 @@ function ProfileAbout() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-1 mt-1">
             <div className="relative ">
               <label className="text-sm">
@@ -293,11 +294,13 @@ function ProfileAbout() {
         </div>
 
       </form>
+
       <div className="mt-5 self-end">
         <button className="bg-secondary text-white px-4 py-2 font-normal rounded-md">
           Save
         </button>
       </div>
+
     </div>
 
     {/* Address */}
@@ -305,7 +308,7 @@ function ProfileAbout() {
       <h3 className="font-medium text-xl">Address</h3>
 
       <form action="" className="flex  flex-col gap-5 mt-5">
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-1 mt-1">
             <div className="relative ">
               <label className="text-sm">
@@ -395,8 +398,6 @@ function ProfileAbout() {
               )}
             </div>
           </div>
-
-
         </div>
 
         <div className="flex flex-col gap-1 mt-1 ">
@@ -429,7 +430,7 @@ function ProfileAbout() {
     {/* Social Links */}
     <div className="bg-white border rounded-md p-7 flex flex-col mt-5">
       <form>
-        <div className="flex  gap-5">
+        <div className="flex items-center  flex-wrap ms:flex-nowrap gap-1 sm:gap-5">
           <div className="flex flex-col gap-1 mt-1 w-36 ">
             <div className="relative ">
               <label className="text-sm">

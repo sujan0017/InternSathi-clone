@@ -105,7 +105,7 @@ function DashboardSetting() {
 
       <div className="mt-7">
         <h4 className="text-xl font-medium ">Danger Zone</h4>
-        <div className="bg-red-100 rounded-md p-5 mt-5 flex justify-between items-end ">
+        <div className="bg-red-100 rounded-md p-5 mt-5 flex justify-between items-end  border border-red-500">
           <div>
             <p className="font-medium text-red-500 ">Deactivate Account</p>
             <p className="text-sm mt-2 text-fontColor">
@@ -114,7 +114,7 @@ function DashboardSetting() {
             </p>
           </div>
           <div className="self-end mt-5">
-            <button className="px-3 py-2 bg-red-500 text-white rounded-md">
+            <button className="px-3 py-2 bg-secondary text-white rounded-md">
               Deactivate Account
             </button>
           </div>

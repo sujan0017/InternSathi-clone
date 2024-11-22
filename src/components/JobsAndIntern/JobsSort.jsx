@@ -4,7 +4,7 @@ function JobsSort() {
   const [showSortList, setShowSortList] = useState(false);
 
   return (
-    <section className={`w-full px-5 flex items-center gap-6 shadow-md`}>
+    <section className={`w-full px-5 flex items-center gap-6`}>
       <select
         name=""
         id=""

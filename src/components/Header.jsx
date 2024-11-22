@@ -8,7 +8,8 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 
-function Header() {
+function Header({ handleButtonClick }) {
+
   const [isHovered, setIsHovered] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
@@ -85,14 +86,19 @@ function Header() {
                   className="absolute top-12 right-0 bg-white rounded-md  shadow-lg"
                 >
                   <Link
-                    to="/dashboard"
+                  onClick={() => handleButtonClick("dashboard")}
+                    to="/dashboard/candidate"
                     className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
                   >
                     <IoHomeOutline /> Dashboard
                   </Link>
-                  <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
+                  <Link
+                   onClick={() => handleButtonClick("profile")}
+                    to="dashboard/candidate/profile"
+                    className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
+                  >
                     <GoPerson /> Profile
-                  </p>
+                  </Link>
                   <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
                     <CiLogout /> Logout
                   </p>
