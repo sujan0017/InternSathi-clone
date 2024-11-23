@@ -7,9 +7,9 @@ import Logo from "./Logo";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
-
 import DashboardMenu from "./DashboardMenu";
 
+// eslint-disable-next-line react/prop-types
 function Header({ handleButtonClick }) {
   const [isHovered, setIsHovered] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
@@ -17,7 +17,7 @@ function Header({ handleButtonClick }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const authUser = "candidate";
 
-  const isAuth = true
+  const isAuth = true;
 
   return (
     <header className="w-full h-[64px] bg-newPrimary flex justify-center items-center fixed z-20">
@@ -68,7 +68,11 @@ function Header({ handleButtonClick }) {
           {authUser === "candidate" ? (
             <DashboardMenu handleButtonClick={handleButtonClick} />
           ) : authUser === "recruiter" ? (
-            <DashboardMenu handleButtonClick={handleButtonClick} hrefDashboard="/dashboard/company" hrefProfile="/dashboard/company/profile"/>
+            <DashboardMenu
+              handleButtonClick={handleButtonClick}
+              hrefDashboard="/dashboard/company"
+              hrefProfile="/dashboard/company/profile"
+            />
           ) : authUser === "institute" ? (
             <DashboardMenu handleButtonClick={handleButtonClick} />
           ) : authUser === "superAdmin" ? (
@@ -122,7 +126,7 @@ function Header({ handleButtonClick }) {
 
         {/* Hamburger Icon for Mobile */}
         <div className="flex md:hidden relative">
-          {/* <div
+          <div
             onMouseEnter={() => setProfileMenu(true)}
             onMouseLeave={() => setProfileMenu(false)}
             className={`${isAuth ? "block" : "hidden"} hover:cursor-pointer `}
@@ -144,22 +148,25 @@ function Header({ handleButtonClick }) {
                 className="absolute top-12 right-0 bg-white rounded-md  shadow-lg"
               >
                 <Link
-                  to="/dashboard"
+                  to={`dashboard/${authUser}`}
                   className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
                 >
                   <IoHomeOutline /> Dashboard
                 </Link>
-                <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
+                <Link
+                  to={`dashboard/${authUser}/profile`}
+                  className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
+                >
                   <GoPerson /> Profile
-                </p>
+                </Link>
                 <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
                   <CiLogout /> Logout
                 </p>
               </div>
             )}
-          </div> */}
+          </div>
 
-          <DashboardMenu />
+          {/* <DashboardMenu /> */}
 
           <button onClick={() => setMenuOpen(!menuOpen)}>
             <HiMenu className="text-white text-2xl" />
