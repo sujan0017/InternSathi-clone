@@ -8,7 +8,13 @@ import { CiLogout } from "react-icons/ci";
 import { useState } from "react";
 import { RiMenu2Line } from "react-icons/ri";
 
-function DashboardHeader({ setMenuOpen, menuOpen, handleButtonClick }) {
+function DashboardHeader({
+  setMenuOpen,
+  menuOpen,
+  handleButtonClick,
+  hrefDashboard = "/dashboard/candidate",
+  hrefProfile = "/dashboard/candidate/profile",
+}) {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleDropdown = (dropdown) => {
@@ -71,16 +77,15 @@ function DashboardHeader({ setMenuOpen, menuOpen, handleButtonClick }) {
               aria-label="Profile menu"
             >
               <Link
-                
-                to="/dashboard/candidate"
-                onClick={()=> handleButtonClick('dashboard')}
+                to={hrefDashboard}
+                onClick={() => handleButtonClick("dashboard")}
                 className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7"
               >
                 <IoHomeOutline /> Dashboard
               </Link>
               <Link
-               onClick={() => handleButtonClick("profile")}
-                to="/dashboard/candidate/profile"
+                onClick={() => handleButtonClick("profile")}
+                to={hrefProfile}
                 className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7"
               >
                 <GoPerson /> Profile

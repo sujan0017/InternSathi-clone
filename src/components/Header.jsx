@@ -8,13 +8,16 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 
-function Header({ handleButtonClick }) {
+import DashboardMenu from "./DashboardMenu";
 
+function Header({ handleButtonClick }) {
   const [isHovered, setIsHovered] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
   const [profileMenu, setProfileMenu] = useState(false);
-  const isAuth = true;
+  const authUser = "candidate";
+
+  const isAuth = true
 
   return (
     <header className="w-full h-[64px] bg-newPrimary flex justify-center items-center fixed z-20">
@@ -62,49 +65,14 @@ function Header({ handleButtonClick }) {
             )}
           </div>
 
-          {isAuth ? (
-            <div
-              onMouseEnter={() => setProfileMenu(true)}
-              onMouseLeave={() => setProfileMenu(false)}
-              className="  hover:cursor-pointer relative  "
-            >
-              <div className="px-3 py-2 flex gap-2  items-center">
-                <div className="w-8 h-8  rounded-full">
-                  <img
-                    src="https://internsathi.com/_next/image?url=https%3A%2F%2Fapi.internsathi.com%2Fuploads%2F1730115089799-94261846.png&w=128&q=75"
-                    alt=""
-                    className="rounded-full"
-                  />
-                </div>
-                <p className="text-white">Sujan Bk</p>
-                <IoMdArrowDropdown className="text-white" />
-              </div>
-              {profileMenu && (
-                <div
-                  onMouseEnter={() => setProfileMenu(true)}
-                  onMouseLeave={() => setProfileMenu(false)}
-                  className="absolute top-12 right-0 bg-white rounded-md  shadow-lg"
-                >
-                  <Link
-                  onClick={() => handleButtonClick("dashboard")}
-                    to="/dashboard/candidate"
-                    className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
-                  >
-                    <IoHomeOutline /> Dashboard
-                  </Link>
-                  <Link
-                   onClick={() => handleButtonClick("profile")}
-                    to="dashboard/candidate/profile"
-                    className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer"
-                  >
-                    <GoPerson /> Profile
-                  </Link>
-                  <p className="text-fontColor hover:bg-secondary hover:bg-opacity-10 hover:text-secondary flex items-center gap-3 pl-2 py-2 pr-7 cursor-pointer">
-                    <CiLogout /> Logout
-                  </p>
-                </div>
-              )}
-            </div>
+          {authUser === "candidate" ? (
+            <DashboardMenu handleButtonClick={handleButtonClick} />
+          ) : authUser === "recruiter" ? (
+            <DashboardMenu handleButtonClick={handleButtonClick} hrefDashboard="/dashboard/company" hrefProfile="/dashboard/company/profile"/>
+          ) : authUser === "institute" ? (
+            <DashboardMenu handleButtonClick={handleButtonClick} />
+          ) : authUser === "superAdmin" ? (
+            <DashboardMenu handleButtonClick={handleButtonClick} />
           ) : (
             <div className="flex gap-5 items-center">
               <Link

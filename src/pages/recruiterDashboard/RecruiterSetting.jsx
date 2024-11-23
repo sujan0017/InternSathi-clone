@@ -3,7 +3,7 @@ import { FaRegEye } from "react-icons/fa";
 import { FiEyeOff } from "react-icons/fi";
 import ToggleSwitch from "../../components/ToggleSwitch";
 
-function DashboardSetting() {
+function RecruiterSetting() {
   const [showPassword, setShowPassword] = useState(false);
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
@@ -139,4 +139,4 @@ function DashboardSetting() {
   );
 }
 
-export default DashboardSetting;
+export default RecruiterSetting;

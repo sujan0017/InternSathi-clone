@@ -6,7 +6,7 @@ function MainLayout({handleButtonClick}) {
   const location = useLocation();
 
   // List of routes where the header and footer should be hidden
-  const dashboardRoutes = ["/dashboard/candidate"];
+  const dashboardRoutes = ["/dashboard"];
 
   // Check if the current route is in the list of dashboard routes
   const shouldHideHeaderFooter = dashboardRoutes.some((route) =>
@@ -15,7 +15,7 @@ function MainLayout({handleButtonClick}) {
 
   return (
     <>
-      {!shouldHideHeaderFooter && <Header handleButtonClick={handleButtonClick}/>}
+      {!shouldHideHeaderFooter && <Header handleButtonClick={handleButtonClick} />}
       <Outlet />
       {!shouldHideHeaderFooter && <Footer />}
     </>

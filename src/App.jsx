@@ -10,7 +10,6 @@ import Home from "./pages/Home";
 import Internships from "./pages/internships/Internships";
 import Jobs from "./pages/Jobs";
 import BrowseEvents from "./pages/BrowseEvents";
-
 import Login from "./pages/auth/Login";
 import CandidateRegister from "./pages/auth/CandidateRegister";
 import RecruiterRegister from "./pages/auth/RecruiterRegister";
@@ -32,6 +31,19 @@ import DashboardHistory from "./pages/dashboard/DashboardHistory";
 import DashboardSetting from "./pages/dashboard/DashboardSetting";
 import DashboardContact from "./pages/dashboard/DashboardContact";
 import { useState } from "react";
+import RecruiterDashboard from "./pages/recruiterDashboard/RecruiterDashboard";
+import RecruiterHome from "./pages/recruiterDashboard/RecruiterHome";
+import RecruiterCompanyProfile from "./pages/recruiterDashboard/RecruiterCompanyProfile";
+import RecruiterAllInternship from "./pages/recruiterDashboard/RecruiterAllInternship";
+import RecruiterHistory from "./pages/recruiterDashboard/RecruiterHistory";
+import RecruiterContact from "./pages/recruiterDashboard/RecruiterContact";
+import RecruiterSetting from "./pages/recruiterDashboard/RecruiterSetting";
+import RecruiterPostJob from "./pages/recruiterDashboard/RecruiterPostJob";
+import RecruiterAllApplicants from "./pages/recruiterDashboard/RecruiterAllApplicants";
+import RecruiterShortlisted from "./pages/recruiterDashboard/RecruiterShortlisted";
+import RecruiterSave from "./pages/recruiterDashboard/RecruiterSave";
+import RecruiterCredit from "./pages/recruiterDashboard/RecruiterCredit";
+import RecruiterCreditUsage from "./pages/recruiterDashboard/RecruiterCreditUsage";
 
 function App() {
   const [activeButton, setActiveButton] = useState("dashboard");
@@ -40,10 +52,17 @@ function App() {
     setActiveButton(title);
   };
 
-
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<MainLayout activeButton={activeButton} handleButtonClick={handleButtonClick} />}>
+      <Route
+        path="/"
+        element={
+          <MainLayout
+            activeButton={activeButton}
+            handleButtonClick={handleButtonClick}
+          />
+        }
+      >
         <Route index element={<Home />} />
 
         <Route path="/internships">
@@ -64,7 +83,16 @@ function App() {
           <Route  path="/register-institute" element={<InstituteRegister />} />
         </Route> */}
 
-        <Route path="/dashboard/candidate" element={<Dashboard activeButton={activeButton} handleButtonClick={handleButtonClick} />}>
+        {/* DashBoard candidate */}
+        <Route
+          path="/dashboard/candidate"
+          element={
+            <Dashboard
+              activeButton={activeButton}
+              handleButtonClick={handleButtonClick}
+            />
+          }
+        >
           <Route index element={<DashboardHome />} />
           <Route
             path="search-opportunities"
@@ -78,6 +106,33 @@ function App() {
           <Route path="contact" element={<DashboardContact />} />
           <Route path="history" element={<DashboardHistory />} />
           <Route path="setting" element={<DashboardSetting />} />
+        </Route>
+
+        <Route path="/dashboard/company" element={<RecruiterDashboard activeButton={activeButton}
+                handleButtonClick={handleButtonClick} />}>
+          <Route index element={<RecruiterHome />} />
+          <Route path="profile" element={<RecruiterCompanyProfile />} />
+
+          <Route path="internship-job" element={<RecruiterAllInternship />} />
+          <Route path="internship-job/post" element={<RecruiterPostJob />} />
+
+          <Route path="applicants" element={<RecruiterAllApplicants />} />
+          <Route
+            path="applicants/shortlisted"
+            element={<RecruiterShortlisted />}
+          />
+          <Route path="applicants/saved" element={<RecruiterSave />} />
+
+          <Route path="membership" element={<RecruiterCredit />} />
+          <Route
+            path="membership/credit-usage"
+            element={<RecruiterCreditUsage />}
+          />
+
+          <Route path="contact" element={<RecruiterContact />} />
+          <Route path="history" element={<RecruiterHistory />} />
+
+          <Route path="setting" element={<RecruiterSetting />} />
         </Route>
 
         <Route path="/jobs" element={<Jobs />} />
