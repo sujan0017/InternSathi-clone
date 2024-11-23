@@ -122,7 +122,7 @@ function Header({ handleButtonClick }) {
 
         {/* Hamburger Icon for Mobile */}
         <div className="flex md:hidden relative">
-          <div
+          {/* <div
             onMouseEnter={() => setProfileMenu(true)}
             onMouseLeave={() => setProfileMenu(false)}
             className={`${isAuth ? "block" : "hidden"} hover:cursor-pointer `}
@@ -157,7 +157,9 @@ function Header({ handleButtonClick }) {
                 </p>
               </div>
             )}
-          </div>
+          </div> */}
+
+          <DashboardMenu />
 
           <button onClick={() => setMenuOpen(!menuOpen)}>
             <HiMenu className="text-white text-2xl" />

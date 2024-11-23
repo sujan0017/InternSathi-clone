@@ -22,7 +22,7 @@ function DashboardMenu({ handleButtonClick, hrefDashboard= "/dashboard/candidate
             className="rounded-full"
           />
         </div>
-        <p className="text-white">Sujan Bk</p>
+        <p className="text-white hidden sm:block">Sujan Bk</p>
         <IoMdArrowDropdown className="text-white" />
       </div>
       {profileMenu && (
