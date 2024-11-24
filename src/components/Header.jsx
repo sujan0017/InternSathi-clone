@@ -15,7 +15,7 @@ function Header({ handleButtonClick }) {
   const [registerModal, setRegisterModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
   const [profileMenu, setProfileMenu] = useState(false);
-  const authUser = "candidate";
+  const authUser = "recruiter";
 
   const isAuth = true;
 
@@ -67,7 +67,7 @@ function Header({ handleButtonClick }) {
 
           {authUser === "candidate" ? (
             <DashboardMenu handleButtonClick={handleButtonClick} />
-          ) : authUser === "recruiter" ? (
+          ) : authUser === "company" ? (
             <DashboardMenu
               handleButtonClick={handleButtonClick}
               hrefDashboard="/dashboard/company"

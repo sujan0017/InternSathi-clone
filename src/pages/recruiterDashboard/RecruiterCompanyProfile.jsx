@@ -1,157 +1,460 @@
+import { RiUploadLine } from "react-icons/ri";
+import { PiCopy } from "react-icons/pi";
 import { useState } from "react";
-import { CiMobile3 } from "react-icons/ci";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { FaGraduationCap } from "react-icons/fa6";
-import { GoLightBulb } from "react-icons/go";
-import { GrAchievement } from "react-icons/gr";
-import {
-  IoBagCheckOutline,
-  IoLanguageOutline,
-  IoPersonOutline,
-} from "react-icons/io5";
-import { MdRocketLaunch } from "react-icons/md";
-
-import { Link } from "react-router-dom";
-import ProfileAbout from "../../components/dashboard/profile/ProfileAbout";
-import ProfileEducation from "../../components/dashboard/profile/ProfileEducation";
-import ProfileProject from "../../components/dashboard/profile/ProfileProject";
-import ProfileExperience from "../../components/dashboard/profile/ProfileExperience";
-import ProfileSkills from "../../components/dashboard/profile/ProfileSkills";
-import ProfileAchievement from "../../components/dashboard/profile/ProfileAchievement";
-import ProfileTraining from "../../components/dashboard/profile/ProfileTraining";
-import ProfileLanguage from "../../components/dashboard/profile/ProfileLanguage";
-import ProfileEmailPhone from "../../components/dashboard/profile/ProfileEmailPhone";
+import { RxDoubleArrowDown } from "react-icons/rx";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { VscAdd } from "react-icons/vsc";
+import { LuUploadCloud } from "react-icons/lu";
 
 function RecruiterCompanyProfile() {
-  const [menu, setMenu] = useState("about");
+  const provincesOfNepal = [
+    "Province No. 1",
+    "Madhesh Province",
+    "Bagmati Province",
+    "Gandaki Province",
+    "Lumbini Province",
+    "Karnali Province",
+    "Sudurpashchim Province",
+  ];
+  const citiesInNepal = [
+    "Kathmandu",
+    "Pokhara",
+    "Lalitpur",
+    "Biratnagar",
+    "Birgunj",
+    "Bharatpur",
+    "Janakpur",
+    "Dharan",
+    "Hetauda",
+    "Butwal",
+    "Nepalgunj",
+    "Itahari",
+    "Tulsipur",
+    "Dhangadhi",
+    "Bhairahawa",
+    "Gorkha",
+    "Palpa",
+    "Chitwan",
+  ];
+  const socialMediaPlatforms = [
+    "Facebook",
+    "Instagram",
+    "Twitter",
+    "LinkedIn",
+    "TikTok",
+    "Snapchat",
+    "Pinterest",
+    "Reddit",
+    "YouTube",
+    "WhatsApp",
+    "Telegram",
+    "Discord",
+    "WeChat",
+    "Tumblr",
+    "Quora",
+    "Flickr",
+    "Clubhouse",
+    "Threads",
+    "Xing",
+    "Medium",
+  ];
+
+  const [ProvinceOption, setProvinceOption] = useState("Select Province");
+  const [isProvinceOpen, setProvinceIsOpen] = useState(false);
+  const handleProvinceOptionClick = (value) => {
+    setProvinceOption(value);
+    setProvinceIsOpen(false);
+  };
+
+  const [cityOption, setCityOption] = useState("Select a city");
+  const [isCityOpen, setCityIsOpen] = useState(false);
+  const handleCityOptionClick = (value) => {
+    setCityOption(value);
+    setCityIsOpen(false);
+  };
+
+  const [socialOption, setSocialOption] = useState("Social Media");
+  const [isSocialOpen, setSocialIsOpen] = useState(false);
+  const handleSocialOptionClick = (value) => {
+    setSocialOption(value);
+    setSocialIsOpen(false);
+  };
 
   return (
-    <section className="w-full h-full">
-      <h3 className="text-2xl font-bold ">{`My Profile`}</h3>
-
-      <div className="flex flex-col lg:flex-row gap-5 ">
-        <div className="mt-5 w-full  flex gap-2 lg:flex-col lg:h-[83vh] lg:max-w-64 overflow-y-scroll  lg:overflow-auto  ">
-          <div>
-            <Link
-              onClick={() => setMenu("about")}
-              className={`flex items-center justify-start gap-5 ${
-                menu === "about" ? "text-secondary  bg-white" : "text-fontColor"
-              }  py-2  px-2 rounded-md font-medium`}
-            >
-              <IoPersonOutline className="text-xl" />
-              About
-            </Link>
+    <section className="w-full h-[85lvh] overflow-y-auto">
+      <h3 className="text-2xl font-bold ">{`Company Profile`}</h3>
+      <div className="">
+        {/* about company */}
+        <div className="bg-white border rounded-md p-7 flex flex-col mt-5 ">
+          <h2 className="text-xl font-medium ">About Company</h2>
+          <div className="flex  items-center justify-start gap-5 mt-5">
+            <div className="size-16 rounded-full bg-secondaryBg flex items-center justify-center ">
+              <img
+                src="https://internsathi.com/_next/image?url=https%3A%2F%2Fapi.internsathi.com%2Fuploads%2F1730115089799-94261846.png&w=128&q=75"
+                className="rounded-full"
+                alt=""
+              />
+            </div>
+            <div className="text-secondary font-semibold flex items-center justify-start gap-2">
+              <RiUploadLine />
+              Upload profile Picture
+            </div>
           </div>
 
-          <div>
-            <Link
-              onClick={() => setMenu("education")}
-              className={`${
-                menu === "education" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  lg:py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <FaGraduationCap className="text-xl" />
-              Education
-            </Link>
-          </div>
+          <form className="flex  flex-col gap-5 mt-5 ">
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1 mt-1 ">
+                <label className="text-sm">
+                  First Name<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+              <div className="flex flex-col gap-1 mt-1 ">
+                <label className="text-sm">
+                  Last Name<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+            </div>
 
-          <div>
-            <Link
-              onClick={() => setMenu("project")}
-              className={`${
-                menu === "project" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <MdRocketLaunch className="text-xl" />
-              Projects
-            </Link>
-          </div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1 mt-1 ">
+                <label className="text-sm">
+                  Company<span className="text-red-500">*</span>
+                </label>
+                <input
+                  placeholder="Enter company name"
+                  type="text"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+              <div className="flex flex-col gap-1 mt-1 ">
+                <label className="text-sm">
+                  Industry<span className="text-red-500">*</span>
+                </label>
+                <input
+                  placeholder="eg.Software development"
+                  type="text"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+            </div>
 
-          <div>
-            <Link
-              onClick={() => setMenu("experience")}
-              className={`${
-                menu === "experience" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <IoBagCheckOutline className="text-xl" />
-              Experience
-            </Link>
-          </div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1 mt-1 ">
+                <label className="text-sm">
+                  Found Date<span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="date"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+              <div className="flex flex-col gap-1 mt-1 ">
+                <label className="text-sm">
+                  Company Size<span className="text-red-500">*</span>
+                </label>
+                <input
+                  placeholder="eg. 0-5 Employee"
+                  type="text"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+            </div>
 
-          <div>
-            <Link
-              onClick={() => setMenu("skills")}
-              className={`${
-                menu === "skills" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <GoLightBulb className="text-xl" />
-              Skills
-            </Link>
-          </div>
+            <div className="flex flex-col gap-1 mt-1 ">
+              <label className="text-sm">
+                Description<span className="text-red-500">*</span>
+              </label>
+              <textarea
+                type="date"
+                className="p-3 text-sm border-2 rounded-md h-52"
+              />
+            </div>
 
-          <div>
-            <Link
-              onClick={() => setMenu("achievement")}
-              className={`${
-                menu === "achievement" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <GrAchievement className="text-xl" />
-              Achievement
-            </Link>
-          </div>
+            <div className="flex flex-col gap-1 mt-1 ">
+              <label className="text-sm">
+                Website URL<span className="text-red-500">*</span>
+              </label>
+              <input type="text" className="p-3 text-sm border-2 rounded-md" />
+            </div>
 
-          <div>
-            <Link
-              onClick={() => setMenu("training")}
-              className={`${
-                menu === "training" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <FaChalkboardTeacher className="text-xl" />
-              Training
-            </Link>
-          </div>
+            <div className="flex flex-col gap-1 mt-1 ">
+              <p className="text-sm">
+                Profile URL<span className="text-red-500">*</span>
+              </p>
+              <div className="flex items-center gap-3 ">
+                <p>https://internsathi.com/company/</p>
+                <p className="border p-2 rounded-md">
+                  bksujan1215recruiter781825
+                </p>
+                <PiCopy className="text-xl" />
+              </div>
+            </div>
+          </form>
 
-          <div>
-            <Link
-              onClick={() => setMenu("language")}
-              className={`${
-                menu === "language" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1`}
-            >
-              <IoLanguageOutline className="text-xl" />
-              Language
-            </Link>
-          </div>
-
-          <div className="min-w-48">
-            <Link
-              onClick={() => setMenu("emailPhone")}
-              className={`${
-                menu === "emailPhone" ? "text-secondary  bg-white" : ""
-              }  flex items-center justify-start gap-5 text-fontColor  py-2 hover:bg-white px-2 rounded-md font-medium mt-1 `}
-            >
-              <CiMobile3 className="text-xl" />
-              Email and Phone
-            </Link>
+          <div className="mt-5 self-end">
+            <button className="bg-secondary text-white px-4 py-2 font-normal rounded-md">
+              Save
+            </button>
           </div>
         </div>
 
-        <div className="flex-1">
-          {menu === "about" && <ProfileAbout />}
-          {menu === "education" && <ProfileEducation />}
-          {menu === "project" && <ProfileProject />}
-          {menu === "experience" && <ProfileExperience />}
-          {menu === "skills" && <ProfileSkills />}
-          {menu === "achievement" && <ProfileAchievement />}
-          {menu === "training" && <ProfileTraining />}
-          {menu === "language" && <ProfileLanguage />}
-          {menu === "emailPhone" && <ProfileEmailPhone />}
+        {/* Email and phone */}
+        <div className=" w-full rounded-md flex-1 mt-5   ">
+          <div className="bg-white border rounded-md p-7 flex flex-col">
+            <h3 className="font-medium text-xl">Email and Phone</h3>
+            <p className="text-fontColor text-sm ">
+              Update and verify your Email and Phone
+            </p>
+            <form action="">
+              <div className="flex flex-col gap-1 mt-5 ">
+                <label className="text-sm">
+                  Email address<span className="text-red-500">*</span>
+                </label>
+                <div className="flex items-center gap-5">
+                  <input
+                    type="email"
+                    placeholder="eg.admain@gmail.com"
+                    className="p-3 text-sm border-2 rounded-md w-1/2"
+                  />
+                  <div className="">
+                    <button className="bg-secondary text-white px-7 py-3 font-normal rounded-md">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-1 mt-5 ">
+                <label className="text-sm">
+                  Phone Number<span className="text-red-500">*</span>
+                </label>
+                <div className="flex items-center gap-5">
+                  <input
+                    type="number"
+                    placeholder="eg.9800000000"
+                    className="p-3 text-sm border-2 rounded-md w-1/2"
+                  />
+                  <div className="">
+                    <button className="bg-secondary text-white px-7 py-3 font-normal rounded-md">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        {/* upload company image */}
+        <div className="bg-white border border-gray-200 shadow-md rounded-md p-7 flex flex-col mt-5 space-y-5">
+          <h3 className="text-2xl font-semibold text-gray-800">{`Company images`}</h3>
+          <div className="p-4 rounded-md bg-fontColor bg-opacity-20 border w-48">
+            <div className="relative">
+              {/* Hidden file input */}
+              <input
+                type="file"
+                id="resumeUpload"
+                className="hidden"
+                onChange={(e) => console.log(e.target.files[0])} // Optional: Handle file selection
+              />
+              {/* Custom button */}
+              <label
+                htmlFor="resumeUpload"
+                className="cursor-pointer flex flex-col items-center justify-center gap-2 px-4 py-2  text-black text-sm font-medium rounded-md "
+              >
+                <LuUploadCloud className="text-2xl" />
+                Upload Photo
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {/* Address */}
+        <div className="bg-white border rounded-md p-7 flex flex-col mt-5 ">
+          <h3 className="font-medium text-xl">Address</h3>
+
+          <form action="" className="flex  flex-col gap-5 mt-5">
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1 mt-1">
+                <div className="relative ">
+                  <label className="text-sm">
+                    Province<span className="text-red-500">*</span>
+                  </label>
+                  <div className="absolute top-10 right-3 z-10  ">
+                    <span
+                      className="flex flex-col gap-[-3px]"
+                      onClick={() => setProvinceIsOpen(!isOpen)}
+                    >
+                      <RxDoubleArrowDown className="text-xl text-fontColor" />
+                    </span>
+                  </div>
+                </div>
+                <div
+                  onMouseLeave={() => setProvinceIsOpen(false)}
+                  className="relative  "
+                >
+                  {/* Province Dropdown  Trigger */}
+                  <div
+                    className="p-3 text-sm border-2 rounded-md bg-white cursor-pointer"
+                    onClick={() => setProvinceIsOpen(!isProvinceOpen)}
+                  >
+                    {ProvinceOption}
+                  </div>
+                  {/* Province Dropdown Options */}
+                  {isProvinceOpen && (
+                    <ul
+                      onMouseEnter={() => setProvinceIsOpen(true)}
+                      className="absolute top-11 w-full h-52 mt-1 bg-white border-2 rounded-md shadow-lg z-10 overflow-x-hidden"
+                    >
+                      {provincesOfNepal.map((i) => (
+                        <li
+                          key={i}
+                          className="p-2  hover:bg-secondary hover:bg-opacity-30 hover:text-secondary cursor-pointer"
+                          onClick={() => handleProvinceOptionClick(`${i}`)}
+                        >
+                          {i}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 mt-1">
+                <div className="relative ">
+                  <label className="text-sm">
+                    City<span className="text-red-500">*</span>
+                  </label>
+                  <div className="absolute top-10 right-3 z-10  ">
+                    <span
+                      className="flex flex-col gap-[-3px]"
+                      onClick={() => setCityIsOpen(!isCityOpen)}
+                    >
+                      <RxDoubleArrowDown className="text-xl text-fontColor" />
+                    </span>
+                  </div>
+                </div>
+                <div
+                  onMouseLeave={() => setCityIsOpen(false)}
+                  className="relative  "
+                >
+                  {/* Province Dropdown  Trigger */}
+                  <div
+                    className="p-3 text-sm border-2 rounded-md bg-white cursor-pointer"
+                    onClick={() => setCityIsOpen(!isCityOpen)}
+                  >
+                    {cityOption}
+                  </div>
+                  {/* Province Dropdown Options */}
+                  {isCityOpen && (
+                    <ul
+                      onMouseEnter={() => setCityIsOpen(true)}
+                      className="absolute top-11 w-full h-52 mt-1 bg-white border-2 rounded-md shadow-lg z-10 overflow-x-hidden"
+                    >
+                      {citiesInNepal.map((i) => (
+                        <li
+                          key={i}
+                          className="p-2  hover:bg-secondary hover:bg-opacity-30 hover:text-secondary cursor-pointer"
+                          onClick={() => handleCityOptionClick(`${i}`)}
+                        >
+                          {i}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1 mt-1 ">
+              <label className="text-sm">Postal code</label>
+              <input type="text" className="p-3 text-sm border-2 rounded-md" />
+            </div>
+
+            <div className="flex flex-col gap-1 mt-1 ">
+              <label className="text-sm">
+                Current Address<span className="text-red-500">*</span>
+              </label>
+              <input type="text" className="p-3 text-sm border-2 rounded-md" />
+            </div>
+          </form>
+
+          <div className="mt-5 self-end">
+            <button className="bg-secondary text-white px-4 py-2 font-normal rounded-md">
+              Save
+            </button>
+          </div>
+        </div>
+
+        {/* social link */}
+        <div className="bg-white border rounded-md p-7 flex flex-col mt-5">
+          <form>
+            <div className="flex items-center  flex-wrap ms:flex-nowrap gap-1 sm:gap-5">
+              <div className="flex flex-col gap-1 mt-1 w-36 ">
+                <div className="relative ">
+                  <label className="text-sm">
+                    Gender<span className="text-red-500">*</span>
+                  </label>
+                  <div className="absolute top-10 right-3 z-10  ">
+                    <span onClick={() => setSocialIsOpen(!isSocialOpen)}>
+                      <MdKeyboardArrowDown className="text-xl text-fontColor" />
+                    </span>
+                  </div>
+                </div>
+                <div
+                  onMouseLeave={() => setSocialIsOpen(false)}
+                  className="relative  "
+                >
+                  {/* Province Dropdown  Trigger */}
+                  <div
+                    className="p-3 text-sm border-2 rounded-md bg-white cursor-pointer"
+                    onClick={() => setSocialIsOpen(!isProvinceOpen)}
+                  >
+                    {socialOption}
+                  </div>
+                  {/* Province Dropdown Options */}
+                  {isSocialOpen && (
+                    <ul
+                      onMouseEnter={() => setSocialIsOpen(true)}
+                      className="absolute top-11 w-full h-52 mt-1 bg-white border-2 rounded-md shadow-lg z-10 overflow-x-hidden"
+                    >
+                      {socialMediaPlatforms.map((i) => (
+                        <li
+                          key={i}
+                          className="p-2  hover:bg-secondary hover:bg-opacity-30 hover:text-secondary cursor-pointer"
+                          onClick={() => handleSocialOptionClick(`${i}`)}
+                        >
+                          {i}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+              <div className="w-full flex flex-col gap-1 mt-1 flex-1 ">
+                <label className="text-sm">
+                  Links<span className="text-red-500">*</span>
+                </label>
+                <input
+                  placeholder="eg. www.social-site.com"
+                  className="p-3 text-sm border-2 rounded-md"
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-start gap-2 text-secondary text-sm mt-10">
+              <VscAdd /> Add Social Link
+            </div>
+          </form>
         </div>
       </div>
+
+ 
     </section>
   );
 }
