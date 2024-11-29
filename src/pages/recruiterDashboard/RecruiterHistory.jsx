@@ -2,6 +2,13 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 function RecruiterHistory() {
+    const educationalInstitutions = [
+      "School (SLC, SEE, 1-10, +2, A Levels)",
+      "College (Diploma, Bachelor, Master)",
+      "Institute",
+      "University",
+      "Others",
+    ];
   const [schoolOption, setSchoolOption] = useState(`All`);
   const [isSchoolOpen, setIsSchoolOpen] = useState(false);
 
@@ -18,14 +25,6 @@ function RecruiterHistory() {
       status: "In Progress",
       createdAt: "2024-11-01",
     },
-  ];
-
-  const educationalInstitutions = [
-    "School (SLC, SEE, 1-10, +2, A Levels)",
-    "College (Diploma, Bachelor, Master)",
-    "Institute",
-    "University",
-    "Others",
   ];
 
   const [filter, setFilter] = useState("All");
@@ -84,6 +83,7 @@ function RecruiterHistory() {
             )}
           </div>
         </div>
+
       </div>
 
       <div className="w-full flex items-center gap-5 mt-5">

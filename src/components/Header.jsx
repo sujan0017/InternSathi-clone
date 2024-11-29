@@ -15,7 +15,7 @@ function Header({ handleButtonClick }) {
   const [registerModal, setRegisterModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
   const [profileMenu, setProfileMenu] = useState(false);
-  const authUser = "recruiter";
+  const authUser = "company";
 
   const isAuth = true;
 

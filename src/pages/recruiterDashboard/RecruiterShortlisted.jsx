@@ -1,11 +1,16 @@
-import React from 'react'
+import { IoIosArrowForward } from "react-icons/io";
+import RecruiterApplicationManage from "../../components/dashboard/RecruiterApplicationManage";
 
 function RecruiterShortlisted() {
   return (
-    <div>
-      dfsdfsd
-    </div>
-  )
+    <>
+      <RecruiterApplicationManage
+        icon={<IoIosArrowForward />}
+        textColor="fontColor"
+        title={`Shortlisted Applications`}
+      />
+    </>
+  );
 }
 
-export default RecruiterShortlisted
+export default RecruiterShortlisted;

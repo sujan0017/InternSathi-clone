@@ -1,11 +1,11 @@
-import React from 'react'
+import RecruiterApplicationManage from "../../components/dashboard/RecruiterApplicationManage";
 
 function RecruiterAllApplicants() {
   return (
-    <div>
-      alldfdsf
-    </div>
-  )
+    <>
+      <RecruiterApplicationManage title={`All applications`} />
+    </>
+  );
 }
 
-export default RecruiterAllApplicants
+export default RecruiterAllApplicants;
