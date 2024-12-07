@@ -44,6 +44,7 @@ import RecruiterShortlisted from "./pages/recruiterDashboard/RecruiterShortliste
 import RecruiterSave from "./pages/recruiterDashboard/RecruiterSave";
 import RecruiterCredit from "./pages/recruiterDashboard/RecruiterCredit";
 import RecruiterCreditUsage from "./pages/recruiterDashboard/RecruiterCreditUsage";
+import PostNewInternship from "./pages/recruiterDashboard/PostNewInternship";
 
 function App() {
   const [activeButton, setActiveButton] = useState("dashboard");
@@ -67,21 +68,10 @@ function App() {
 
         <Route path="/internships">
           <Route index element={<Internships />} />
-          <Route path="/internships/details" element={<InternshipDetails />} />
+          <Route path="internships/details" element={<InternshipDetails />} />
         </Route>
-
-        {/* <Route path="/dashboard">
-          <Route index element={<Dashboard />} />
-          <Route path="candidate" element={<Dashboard />} />
-        
-        </Route> */}
-
-        {/* <Route path="/auth">
-          <Route path="/login" element={<Login />} />
-          <Route  path="/register-candidate" element={<CandidateRegister />} />
-          <Route  path="/register-recruiter" element={<RecruiterRegister />} />
-          <Route  path="/register-institute" element={<InstituteRegister />} />
-        </Route> */}
+        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/browse-events" element={<BrowseEvents />} />
 
         {/* DashBoard candidate */}
         <Route
@@ -108,13 +98,23 @@ function App() {
           <Route path="setting" element={<DashboardSetting />} />
         </Route>
 
-        <Route path="/dashboard/company" element={<RecruiterDashboard activeButton={activeButton}
-                handleButtonClick={handleButtonClick} />}>
+        {/* Dashboard Company */}
+        <Route
+          path="/dashboard/company"
+          element={
+            <RecruiterDashboard
+              activeButton={activeButton}
+              handleButtonClick={handleButtonClick}
+            />
+          }
+        >
           <Route index element={<RecruiterHome />} />
           <Route path="profile" element={<RecruiterCompanyProfile />} />
-
           <Route path="internship-job" element={<RecruiterAllInternship />} />
-          <Route path="internship-job/post" element={<RecruiterPostJob />} />
+
+          <Route path="internship-job/post" element={<RecruiterPostJob />}>
+            <Route path="internship" element={<PostNewInternship />} />
+          </Route>
 
           <Route path="applicants" element={<RecruiterAllApplicants />} />
           <Route
@@ -122,35 +122,22 @@ function App() {
             element={<RecruiterShortlisted />}
           />
           <Route path="applicants/saved" element={<RecruiterSave />} />
-
           <Route path="membership" element={<RecruiterCredit />} />
           <Route
             path="membership/credit-usage"
             element={<RecruiterCreditUsage />}
           />
-
           <Route path="contact" element={<RecruiterContact />} />
           <Route path="history" element={<RecruiterHistory />} />
-
           <Route path="setting" element={<RecruiterSetting />} />
         </Route>
 
-        <Route path="/jobs" element={<Jobs />} />
-        <Route path="/browse-events" element={<BrowseEvents />} />
-
-        <Route path="/auth/login" element={<Login />} />
-        <Route
-          path="/auth/register-candidate"
-          element={<CandidateRegister />}
-        />
-        <Route
-          path="/auth/register-recruiter"
-          element={<RecruiterRegister />}
-        />
-        <Route
-          path="/auth/register-institute"
-          element={<InstituteRegister />}
-        />
+        <Route path="auth">
+          <Route path="login" element={<Login />} />
+          <Route path="register-candidate" element={<CandidateRegister />} />
+          <Route path="register-recruiter" element={<RecruiterRegister />} />
+          <Route path="register-institute" element={<InstituteRegister />} />
+        </Route>
 
         <Route path="/terms-and-condition" element={<TermsAndCondition />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

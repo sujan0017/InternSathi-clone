@@ -2,13 +2,13 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 function RecruiterHistory() {
-    const educationalInstitutions = [
-      "School (SLC, SEE, 1-10, +2, A Levels)",
-      "College (Diploma, Bachelor, Master)",
-      "Institute",
-      "University",
-      "Others",
-    ];
+  const educationalInstitutions = [
+    "School (SLC, SEE, 1-10, +2, A Levels)",
+    "College (Diploma, Bachelor, Master)",
+    "Institute",
+    "University",
+    "Others",
+  ];
   const [schoolOption, setSchoolOption] = useState(`All`);
   const [isSchoolOpen, setIsSchoolOpen] = useState(false);
 
@@ -41,15 +41,13 @@ function RecruiterHistory() {
 
         <div className="flex flex-col gap-1 mt-1 w-72">
           <div className="relative ">
-            <label className="text-sm">
-              Category
-            </label>
+            <label className="text-sm">Category</label>
             <div className="absolute top-10 right-3 z-10  ">
               <span
                 className="flex flex-col gap-[-3px]"
                 onClick={() => setIsSchoolOpen(!isSchoolOpen)}
               >
-                <IoIosArrowDown  className="text-xl text-fontColor" />
+                <IoIosArrowDown className="text-xl text-fontColor" />
               </span>
             </div>
           </div>
@@ -83,7 +81,6 @@ function RecruiterHistory() {
             )}
           </div>
         </div>
-
       </div>
 
       <div className="w-full flex items-center gap-5 mt-5">
@@ -92,7 +89,6 @@ function RecruiterHistory() {
           "Pending",
           "In Progress",
           "Language",
-          "On Hold",
           "Rejected",
           "Resolved",
         ].map((status) => (
@@ -111,64 +107,62 @@ function RecruiterHistory() {
       </div>
 
       <div className="rounded-md border bg-white mt-5 overflow-y-scroll  lg:overflow-auto ">
-   
-          <table className="w-full">
-            <thead>
-              <tr className="border-b w-full">
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Subject
-                </th>
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Category
-                </th>
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Description
-                </th>
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Status
-                </th>
-                <th className="h-12 px-4 text-left align-middle font-medium">
-                  Created At
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredApplications.length > 0 ? (
-                filteredApplications.map((app, index) => (
-                  <tr key={index} className="border-b">
-                    <td className="p-4 text-sm">{app.subject}</td>
-                    <td className="p-4 text-sm">{app.category}</td>
-                    <td className="p-4 text-sm">{app.description}</td>
-                    <td className="p-4 text-sm">{app.status}</td>
-                    <td className="p-4 text-sm">{app.createdAt}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td
-                    className="p-4 align-middle h-24 text-center col-span-7"
-                    colSpan="6"
-                  >
-                    <div className="flex flex-col justify-center items-center w-full gap-2">
-                      <div className="w-[110px] flex justify-center items-center">
-                        <img
-                          src="https://internsathi.com/no-result.svg"
-                          alt="No results"
-                        />
-                      </div>
-                      <p className="text-sm text-fontColor text-center">
-                        No events found
-                      </p>
-                      <p className="text-sm text-gray-300 text-center">
-                        Search other events that may be available
-                      </p>
-                    </div>
-                  </td>
+        <table className="w-full">
+          <thead>
+            <tr className="border-b w-full">
+              <th className="h-12 px-4 text-left align-middle font-medium">
+                Subject
+              </th>
+              <th className="h-12 px-4 text-left align-middle font-medium">
+                Category
+              </th>
+              <th className="h-12 px-4 text-left align-middle font-medium">
+                Description
+              </th>
+              <th className="h-12 px-4 text-left align-middle font-medium">
+                Status
+              </th>
+              <th className="h-12 px-4 text-left align-middle font-medium">
+                Created At
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredApplications.length > 0 ? (
+              filteredApplications.map((app, index) => (
+                <tr key={index} className="border-b">
+                  <td className="p-4 text-sm">{app.subject}</td>
+                  <td className="p-4 text-sm">{app.category}</td>
+                  <td className="p-4 text-sm">{app.description}</td>
+                  <td className="p-4 text-sm">{app.status}</td>
+                  <td className="p-4 text-sm">{app.createdAt}</td>
                 </tr>
-              )}
-            </tbody>
-          </table>
-       
+              ))
+            ) : (
+              <tr>
+                <td
+                  className="p-4 align-middle h-24 text-center col-span-7"
+                  colSpan="6"
+                >
+                  <div className="flex flex-col justify-center items-center w-full gap-2">
+                    <div className="w-[110px] flex justify-center items-center">
+                      <img
+                        src="https://internsathi.com/no-result.svg"
+                        alt="No results"
+                      />
+                    </div>
+                    <p className="text-sm text-fontColor text-center">
+                      No events found
+                    </p>
+                    <p className="text-sm text-gray-300 text-center">
+                      Search other events that may be available
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

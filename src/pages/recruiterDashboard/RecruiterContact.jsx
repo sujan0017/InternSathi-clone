@@ -30,7 +30,7 @@ function RecruiterContact() {
     setIsOpen(false);
   };
   return (
-    <div className="bg-white rounded-md p-5 ">
+    <div className="bg-white rounded-md p-5 overflow-y-scroll  ">
       <h2 className="text-xl font-medium">Contact Us</h2>
       <p className="text-xs text-fontColor mt-3">
         We are here to help you. Report a bug or any queries.
@@ -88,7 +88,7 @@ function RecruiterContact() {
           </label>
           <textarea
             type="text"
-            className="p-3 text-sm border-2 min-h-20 rounded-md"
+            className="p-3 text-sm border-2 min-h-40 rounded-md"
           />
         </div>
 

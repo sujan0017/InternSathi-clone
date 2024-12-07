@@ -108,7 +108,7 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
                   All Internship/Job
                 </Link>
                 <Link
-                  to={"/dashboard/company/internship-jobs"}
+                  to={"/dashboard/company/internship-job/post"}
                   onClick={() => handleButtonClick("internshipJobPost")}
                   className={`${
                     activeButton === "internshipJobPost"
@@ -118,7 +118,7 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
                 >
                   {" "}
                   <PiDotThin className="text-3xl" />
-                  Post Interview/Jobs
+                  Post Internship/Jobs
                 </Link>
               </div>
             </div>
@@ -349,7 +349,7 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
                   All Internship/Job
                 </Link>
                 <Link
-                  to={"/dashboard/company/internship-jobs"}
+                  to={"/dashboard/company/internship-job/post"}
                   onClick={() => handleButtonClick("internshipJobPost")}
                   className={`${
                     activeButton === "internshipJobPost"
@@ -359,7 +359,7 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
                 >
                   {" "}
                   <PiDotThin className="text-3xl" />
-                  Post Interview/Jobs
+                  Post Internship/Jobs
                 </Link>
               </div>
             </div>

@@ -17,7 +17,13 @@ function Header({ handleButtonClick }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const authUser = "company";
 
-  const isAuth = true;
+  let isAuth;
+  authUser === "recruiter" ||
+  authUser === "company" ||
+  authUser === "institute" ||
+  authUser === "superAdmin"
+    ? (isAuth = true)
+    : (isAuth = false);
 
   return (
     <header className="w-full h-[64px] bg-newPrimary flex justify-center items-center fixed z-20">

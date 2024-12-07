@@ -4,6 +4,7 @@ import {
   IoIosArrowBack,
   IoIosArrowDown,
   IoIosArrowForward,
+  IoMdArrowBack,
 } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -16,8 +17,18 @@ function RecruiterCredit() {
     setShowLimit(false);
   }
 
+  const values = [50, 100, 500, 1000, 5000, 10000, "Custom"];
+  const [currentValue, setCurrentValue] = useState(values[0]); // Default value
+
+  const handleSliderChange = (e) => {
+    const index = e.target.value; // Get the slider position (index)
+    setCurrentValue(values[index]); // Map to the corresponding value
+  };
+
+  const [showCreditMenu, setShowCreditMenu] = useState(false);
+
   return (
-    <div className="w-full h-[85lvh] overflow-y-auto">
+    <div className="w-full h-[85lvh] overflow-y-auto relative">
       <RecruiterCreditHeader title={"Membership"} />
 
       <div className="bg-white rounded-md p-7 flex items-start justify-between">
@@ -34,7 +45,10 @@ function RecruiterCredit() {
           </p>
 
           <div className="flex justify-start items-center gap-2">
-            <button className="bg-secondary text-white text-sm font-semibold px-4 py-2 rounded-lg hover:cursor-pointer">
+            <button
+              onClick={() => setShowCreditMenu(!showCreditMenu)}
+              className="bg-secondary text-white text-sm font-semibold px-4 py-2 rounded-lg hover:cursor-pointer"
+            >
               Buy More Credit
             </button>
             <button className="bg-secondaryBg  text-sm font-semibold px-4 py-2 rounded-lg hover:cursor-pointer">
@@ -49,7 +63,11 @@ function RecruiterCredit() {
         </div>
       </div>
 
-      <div className="mt-7 grid grid-cols-5 gap-5">
+      <div
+        className={` ${
+          showCreditMenu ? "hidden" : "block"
+        } mt-7 grid grid-cols-5 gap-5`}
+      >
         <div className="bg-white rounded-md p-3 border col-span-3">
           <div className="w-full flex justify-between items-center">
             <h3 className="font-medium">Daily Credit Summary</h3>
@@ -66,7 +84,7 @@ function RecruiterCredit() {
           </div>
         </div>
 
-        <div className="bg-white rounded-md p-3 border col-span-2">
+        <div className="bg-white rounded-md p-5 border col-span-2">
           <h3 className="font-medium ">Usage Detail</h3>
           <div className="mt-10 mb-16">
             <div className="flex items-end gap-1">
@@ -86,7 +104,11 @@ function RecruiterCredit() {
         </div>
       </div>
 
-      <div className="bg-white rounded-md mt-7 p-3">
+      <div
+        className={`${
+          showCreditMenu ? "hidden" : "block"
+        } bg-white rounded-md mt-7 p-3`}
+      >
         <h3 className="text-medium ">Billing History</h3>
         <div className="rounded-md border bg-white mt-5 overflow-y-scroll  lg:overflow-auto my-3 ">
           <table className="w-full">
@@ -138,10 +160,7 @@ function RecruiterCredit() {
         <div className="flex items-center gap-5">
           <p className="text-sm">Rows per pages</p>
           <div>
-            <div
-        
-              className=" relative"
-            >
+            <div className=" relative">
               <span
                 onClick={() => setShowLimit(!showLimit)}
                 className="border-2 p-2 rounded-md flex items-center gap-3 hover:cursor-pointer"
@@ -179,6 +198,99 @@ function RecruiterCredit() {
           <div className="flex items-center gap-5 pl-2">
             <IoIosArrowBack className="text-xl" />{" "}
             <IoIosArrowForward className="text-xl" />
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`${
+          showCreditMenu ? "block" : "hidden"
+        } w-full h-full bg-secondaryBg border rounded-md p-5  absolute top-0 `}
+      >
+        <IoMdArrowBack
+          className="text-2xl hover:cursor-pointer"
+          onClick={() => setShowCreditMenu(!showCreditMenu)}
+        />
+        <p className="text-[22px] font-semibold mt-5 ">Choose Credit Package</p>
+        <p className="">Price Depends on the Volume</p>
+
+        <div className="grid grid-cols-4 mt-5 p-5">
+
+          <div className="col-span-3 flex flex-col items-center justify-center gap-5  ">
+            <span className="text-secondary bg-secondary bg-opacity-15 p-2 rounded-md">
+              Includes 5% discount
+            </span>
+
+            <h2 className="text-[27px] font-bold">500 Internsathi Credit</h2>
+
+            <div className="flex flex-col items-center justify-center w-full">
+              <div className="relative w-full max-w-xl ">
+                {/* Range Slider */}
+                <input
+                  id="range"
+                  type="range"
+                  min="0"
+                  max={values.length - 1}
+                  step="1"
+                  value={values.indexOf(currentValue)}
+                  onChange={handleSliderChange}
+                  className="w-full accent-blue-500"
+                />
+
+                {/* Markers below the slider */}
+                <div className="flex justify-between">
+                  {values.map((value, index) => (
+                    <span
+                      key={index}
+                      className={`text-sm font-semibold ${
+                        currentValue === value
+                          ? "text-blue-500 font-bold"
+                          : "text-gray-500"
+                      }`}
+                    >
+                      {value}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="border-2 rounded-md bg-secondary bg-opacity-15 border-blue-500 p-3 min-w-96">
+              <p className="text-xs font-semibold">Need More Credit?</p>
+              <p className="text-xs  mt-1">
+                Please{" "}
+                <span className="text-blue-500 underline">Contact us</span> for
+                a custom plan.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-span-1 bg-white rounded-md p-5">
+            <h5 className="font-semibold">Purchase Summary</h5>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-sm">Credit Volume</p>
+              <p className="font-semibold">{currentValue}</p>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-sm">Per Credit</p>
+              <p className="font-semibold">Rs 10</p>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-sm">Discount </p>
+              <p className="font-semibold">5%</p>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-sm">VAT</p>
+              <p className="font-semibold">13%</p>
+            </div>
+            <div className="border-t-2 my-7"></div>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-sm">Total</p>
+              <p className="font-semibold">Rs. 1919.25</p>
+            </div>
+            <button className="text-sm font-semibold bg-secondary mx-2 w-full text-white py-2 rounded-md mt-5">
+              Continue to checkout
+            </button>
           </div>
         </div>
       </div>
