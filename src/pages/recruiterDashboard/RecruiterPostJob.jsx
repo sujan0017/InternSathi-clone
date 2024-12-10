@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import PostNewInternship from "./PostNewInternship";
+
 import { Link } from "react-router-dom";
+import PostNewInternship from "./PostNewInternship";
 
 function RecruiterPostJob() {
   const [showInternshipForm, setShowInternshipForm] = useState(false);
@@ -11,7 +12,7 @@ function RecruiterPostJob() {
       <h3 className="text-2xl font-semibold text-center mb-7">
         Choose what you want to post
       </h3>
-      <div className="flex item-center justify-center gap-7 ">
+      <div className="flex item-center justify-center gap-7  ">
         <div>
           <RecruiterPostJonCart
             href={`/dashboard/company/internship-job/post/internship`}
@@ -31,9 +32,16 @@ function RecruiterPostJob() {
           img={`https://internsathi.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjob-icon.884a3e44.png&w=32&q=75`}
         />
 
-        <div className="absolute top-0 h-[90lvh] w-full bg-black overflow-y-hidden">
-          <PostNewInternship />
-        </div>  
+        <div
+          className={`${
+            showInternshipForm ? "block" : "hidden"
+          } absolute top-0 h-[90lvh] w-full bg-black overflow-y-hidden`}
+        >
+          <PostNewInternship
+            showInternshipForm={showInternshipForm}
+            setShowInternshipForm={setShowInternshipForm}
+          />
+        </div>
       </div>
     </div>
   );

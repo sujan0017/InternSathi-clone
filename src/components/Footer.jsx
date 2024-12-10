@@ -2,16 +2,14 @@ import Logo from "./Logo";
 import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Universe from "./Universe";
-
+// import Universe from "./Universe";
 
 function Footer() {
- 
   return (
     <footer className="w-full py-16  flex flex-col items-center bg-none z-50 bg-newPrimary relative">
-      <div className="absolute top-0 bottom-0  w-full  ">
+      {/* <div className="absolute top-0 bottom-0  w-full  ">
         <Universe />
-      </div>
+      </div> */}
 
       <div className="w-full text-white px-5 2xl:px-[142px] z-10">
         <div className="w-full grid grid-col-1  lg:grid-cols-7 gap-8 lg:gap-5 justify-center  pb-16">
@@ -37,10 +35,14 @@ function Footer() {
           </div>
           <div className="flex flex-col items-center lg:items-start gap-2">
             <h4 className="font-bold mb-2 ">About Internsathi</h4>
-            <Link to='/about-us' className="hover:underline text-sm">About us</Link>
+            <Link to="/about-us" className="hover:underline text-sm">
+              About us
+            </Link>
             <Link className="hover:underline text-sm">Our Services</Link>
             <Link className="hover:underline text-sm">Our Blogs</Link>
-            <Link to='/contact-us' className="hover:underline text-sm">Contact us</Link>
+            <Link to="/contact-us" className="hover:underline text-sm">
+              Contact us
+            </Link>
           </div>
           <div className="flex flex-col  gap-2 items-center lg:items-start">
             <h4 className="font-bold mb-2 ">For Candidates</h4>
@@ -64,9 +66,13 @@ function Footer() {
           </div>
           <div className="flex flex-col  gap-2 items-center lg:items-start">
             <h4 className="font-bold mb-2 ">About Internsathi</h4>
-            <Link to='/privacy-policy' className="hover:underline text-sm">Privacy Policy</Link>
-            <Link to='/terms-and-condition' className="hover:underline text-sm">Terms of use</Link>
-            <a  href="#faq" className="hover:underline text-sm">
+            <Link to="/privacy-policy" className="hover:underline text-sm">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-and-condition" className="hover:underline text-sm">
+              Terms of use
+            </Link>
+            <a href="#faq" className="hover:underline text-sm">
               FAQs
             </a>
           </div>

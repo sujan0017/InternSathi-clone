@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { FaCircleArrowLeft } from "react-icons/fa6";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import {
   IoIosArrowBack,
   IoIosArrowDown,
   IoIosArrowForward,
-  IoMdArrowBack,
 } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -17,7 +17,7 @@ function RecruiterCredit() {
     setShowLimit(false);
   }
 
-  const values = [50, 100, 500, 1000, 5000, 10000, "Custom"];
+  const values = [50, 100, 500, 1000, 5000, 10000, 'Custom'];
   const [currentValue, setCurrentValue] = useState(values[0]); // Default value
 
   const handleSliderChange = (e) => {
@@ -30,7 +30,6 @@ function RecruiterCredit() {
   return (
     <div className="w-full h-[85lvh] overflow-y-auto relative">
       <RecruiterCreditHeader title={"Membership"} />
-
       <div className="bg-white rounded-md p-7 flex items-start justify-between">
         <div className="flex flex-col justify-start gap-5">
           <p className="">Your Available Credit</p>
@@ -62,6 +61,8 @@ function RecruiterCredit() {
           </button>
         </div>
       </div>
+
+      {/* Daily Credit Summery */}
 
       <div
         className={` ${
@@ -104,6 +105,7 @@ function RecruiterCredit() {
         </div>
       </div>
 
+      {/* Billing History Table */}
       <div
         className={`${
           showCreditMenu ? "hidden" : "block"
@@ -202,12 +204,13 @@ function RecruiterCredit() {
         </div>
       </div>
 
+      {/* BuyMoreCredit Page */}
       <div
         className={`${
           showCreditMenu ? "block" : "hidden"
         } w-full h-full bg-secondaryBg border rounded-md p-5  absolute top-0 `}
       >
-        <IoMdArrowBack
+        <FaCircleArrowLeft
           className="text-2xl hover:cursor-pointer"
           onClick={() => setShowCreditMenu(!showCreditMenu)}
         />
@@ -215,19 +218,18 @@ function RecruiterCredit() {
         <p className="">Price Depends on the Volume</p>
 
         <div className="grid grid-cols-4 mt-5 p-5">
-
           <div className="col-span-3 flex flex-col items-center justify-center gap-5  ">
+
             <span className="text-secondary bg-secondary bg-opacity-15 p-2 rounded-md">
               Includes 5% discount
             </span>
 
-            <h2 className="text-[27px] font-bold">500 Internsathi Credit</h2>
+            <h2 className="text-[27px] font-bold">{`${currentValue} Internsathi Credit`}</h2>
 
             <div className="flex flex-col items-center justify-center w-full">
               <div className="relative w-full max-w-xl ">
                 {/* Range Slider */}
                 <input
-                  id="range"
                   type="range"
                   min="0"
                   max={values.length - 1}
@@ -242,11 +244,8 @@ function RecruiterCredit() {
                   {values.map((value, index) => (
                     <span
                       key={index}
-                      className={`text-sm font-semibold ${
-                        currentValue === value
-                          ? "text-blue-500 font-bold"
-                          : "text-gray-500"
-                      }`}
+                      className="font-medium"
+            
                     >
                       {value}
                     </span>
@@ -263,6 +262,7 @@ function RecruiterCredit() {
                 a custom plan.
               </p>
             </div>
+
           </div>
 
           <div className="col-span-1 bg-white rounded-md p-5">

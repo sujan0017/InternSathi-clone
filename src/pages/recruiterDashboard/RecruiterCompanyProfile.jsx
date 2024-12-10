@@ -5,6 +5,7 @@ import { RxDoubleArrowDown } from "react-icons/rx";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { VscAdd } from "react-icons/vsc";
 import { LuUploadCloud } from "react-icons/lu";
+import FormNormal, { FormLevelOne } from "../../components/Form/FormNormal";
 
 function RecruiterCompanyProfile() {
   const provincesOfNepal = [
@@ -58,19 +59,36 @@ function RecruiterCompanyProfile() {
     "Xing",
     "Medium",
   ];
+  const industryOption = [
+    "Web Development",
+    "Mobile App Development",
+    "Data Science and Analytics",
+    "Cloud Computing",
+    "Cybersecurity",
+    "Database Management",
+    "Artificial Intelligence and Machine Learning",
+    "Quality Assurance and Testing",
+    "UI/UX Design",
+    "Software Development",
+    "IT Support and Maintenance",
+    "Digital Marketing and SEO",
+    "Project Management",
+    "Game Development",
+    "Blockchain Development",
+  ];
 
-  const [ProvinceOption, setProvinceOption] = useState("Select Province");
-  const [isProvinceOpen, setProvinceIsOpen] = useState(false);
-  const handleProvinceOptionClick = (value) => {
-    setProvinceOption(value);
-    setProvinceIsOpen(false);
+  const [isProvinceOpen, setIsProvinceOpen] = useState(false);
+  const [selectedProvince, setSelectedProvince] = useState("");
+  const handleClickProvince = (value) => {
+    setSelectedProvince(value);
+    setIsProvinceOpen(false);
   };
 
-  const [cityOption, setCityOption] = useState("Select a city");
-  const [isCityOpen, setCityIsOpen] = useState(false);
-  const handleCityOptionClick = (value) => {
-    setCityOption(value);
-    setCityIsOpen(false);
+  const [isCityOpen, setIsCityOpen] = useState(false);
+  const [selectedCity, setSelectedCity] = useState("");
+  const handleClickCity = (value) => {
+    setSelectedCity(value);
+    setIsCityOpen(false);
   };
 
   const [socialOption, setSocialOption] = useState("Social Media");
@@ -80,10 +98,24 @@ function RecruiterCompanyProfile() {
     setSocialIsOpen(false);
   };
 
+  const [isIndustryOpen, setIsIndustryOpen] = useState(false);
+  const [selectedIndustry, setSelectedIndustry] = useState("");
+  function handleClickIndustry(city) {
+    setSelectedIndustry(city);
+    setIsIndustryOpen(false);
+  }
+
+  function handleAutoCloseMenu() {
+    setIsIndustryOpen(false);
+    setSocialIsOpen(false);
+    setIsCityOpen(false);
+    setIsProvinceOpen(false);
+  }
+
   return (
     <section className="w-full h-[85lvh] overflow-y-auto">
       <h3 className="text-2xl font-bold ">{`Company Profile`}</h3>
-      <div className="">
+      <div onMouseUpCapture={handleAutoCloseMenu} className="">
         {/* about company */}
         <div className="bg-white border rounded-md p-7 flex flex-col mt-5 ">
           <h2 className="text-xl font-medium ">About Company</h2>
@@ -101,74 +133,52 @@ function RecruiterCompanyProfile() {
             </div>
           </div>
 
-          <form className="flex  flex-col gap-5 mt-5 ">
+          <form  className=" mt-5 ">
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="flex flex-col gap-1 mt-1 ">
-                <label className="text-sm">
-                  First Name<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="p-3 text-sm border-2 rounded-md"
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-1 ">
-                <label className="text-sm">
-                  Last Name<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="p-3 text-sm border-2 rounded-md"
-                />
-              </div>
+              <FormNormal
+                title={`First Name`}
+                placeholder={`eg. Emma`}
+                type={"text"}
+                required={`*`}
+              />
+              <FormNormal
+                title={`Last Name`}
+                placeholder={`eg. Copper`}
+                type={"text"}
+                required={`*`}
+              />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="flex flex-col gap-1 mt-1 ">
-                <label className="text-sm">
-                  Company<span className="text-red-500">*</span>
-                </label>
-                <input
-                  placeholder="Enter company name"
-                  type="text"
-                  className="p-3 text-sm border-2 rounded-md"
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-1 ">
-                <label className="text-sm">
-                  Industry<span className="text-red-500">*</span>
-                </label>
-                <input
-                  placeholder="eg.Software development"
-                  type="text"
-                  className="p-3 text-sm border-2 rounded-md"
-                />
-              </div>
+              <FormNormal
+                title={`Company Name`}
+                placeholder={`eg. Digital Nepal Pvt Ltd.`}
+                type={"text"}
+                required={`*`}
+              />
+              <FormLevelOne
+                mappingValue={industryOption}
+                handleClickEvent={handleClickIndustry}
+                isMenuOpen={isIndustryOpen}
+                value={selectedIndustry}
+                title={`Industry`}
+                placeHolder={`eg. Software Development`}
+                toggleSwitch={() => setIsIndustryOpen(!isIndustryOpen)}
+                required={`*`}
+              />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="flex flex-col gap-1 mt-1 ">
-                <label className="text-sm">
-                  Found Date<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="date"
-                  className="p-3 text-sm border-2 rounded-md"
-                />
-              </div>
-              <div className="flex flex-col gap-1 mt-1 ">
-                <label className="text-sm">
-                  Company Size<span className="text-red-500">*</span>
-                </label>
-                <input
-                  placeholder="eg. 0-5 Employee"
-                  type="text"
-                  className="p-3 text-sm border-2 rounded-md"
-                />
-              </div>
+              <FormNormal title={`Founded Date`} type={"date"} required={`*`} />
+              <FormNormal
+                title={`Company Size`}
+                placeholder={`eg. 5`}
+                type={"text"}
+                required={`*`}
+              />
             </div>
 
-            <div className="flex flex-col gap-1 mt-1 ">
+            <div className="flex flex-col gap-1 mt-5 ">
               <label className="text-sm">
                 Description<span className="text-red-500">*</span>
               </label>
@@ -178,14 +188,14 @@ function RecruiterCompanyProfile() {
               />
             </div>
 
-            <div className="flex flex-col gap-1 mt-1 ">
-              <label className="text-sm">
-                Website URL<span className="text-red-500">*</span>
-              </label>
-              <input type="text" className="p-3 text-sm border-2 rounded-md" />
-            </div>
+            <FormNormal
+              title={`Company URL`}
+              placeholder={`eg. http://example.com`}
+              type={"text"}
+              required={`*`}
+            />
 
-            <div className="flex flex-col gap-1 mt-1 ">
+            <div className="flex flex-col gap-1 mt-5 ">
               <p className="text-sm">
                 Profile URL<span className="text-red-500">*</span>
               </p>
@@ -252,6 +262,7 @@ function RecruiterCompanyProfile() {
           </div>
         </div>
         {/* upload company image */}
+
         <div className="bg-white border border-gray-200 shadow-md rounded-md p-7 flex flex-col mt-5 space-y-5">
           <h3 className="text-2xl font-semibold text-gray-800">{`Company images`}</h3>
           <div className="p-4 rounded-md bg-fontColor bg-opacity-20 border w-48">
@@ -279,110 +290,42 @@ function RecruiterCompanyProfile() {
         <div className="bg-white border rounded-md p-7 flex flex-col mt-5 ">
           <h3 className="font-medium text-xl">Address</h3>
 
-          <form action="" className="flex  flex-col gap-5 mt-5">
+          <form action="" className=" mt-5">
             <div className="grid sm:grid-cols-2 gap-5">
-              <div className="flex flex-col gap-1 mt-1">
-                <div className="relative ">
-                  <label className="text-sm">
-                    Province<span className="text-red-500">*</span>
-                  </label>
-                  <div className="absolute top-10 right-3 z-10  ">
-                    <span
-                      className="flex flex-col gap-[-3px]"
-                      onClick={() => setProvinceIsOpen(!isOpen)}
-                    >
-                      <RxDoubleArrowDown className="text-xl text-fontColor" />
-                    </span>
-                  </div>
-                </div>
-                <div
-                  onMouseLeave={() => setProvinceIsOpen(false)}
-                  className="relative  "
-                >
-                  {/* Province Dropdown  Trigger */}
-                  <div
-                    className="p-3 text-sm border-2 rounded-md bg-white cursor-pointer"
-                    onClick={() => setProvinceIsOpen(!isProvinceOpen)}
-                  >
-                    {ProvinceOption}
-                  </div>
-                  {/* Province Dropdown Options */}
-                  {isProvinceOpen && (
-                    <ul
-                      onMouseEnter={() => setProvinceIsOpen(true)}
-                      className="absolute top-11 w-full h-52 mt-1 bg-white border-2 rounded-md shadow-lg z-10 overflow-x-hidden"
-                    >
-                      {provincesOfNepal.map((i) => (
-                        <li
-                          key={i}
-                          className="p-2  hover:bg-secondary hover:bg-opacity-30 hover:text-secondary cursor-pointer"
-                          onClick={() => handleProvinceOptionClick(`${i}`)}
-                        >
-                          {i}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1 mt-1">
-                <div className="relative ">
-                  <label className="text-sm">
-                    City<span className="text-red-500">*</span>
-                  </label>
-                  <div className="absolute top-10 right-3 z-10  ">
-                    <span
-                      className="flex flex-col gap-[-3px]"
-                      onClick={() => setCityIsOpen(!isCityOpen)}
-                    >
-                      <RxDoubleArrowDown className="text-xl text-fontColor" />
-                    </span>
-                  </div>
-                </div>
-                <div
-                  onMouseLeave={() => setCityIsOpen(false)}
-                  className="relative  "
-                >
-                  {/* Province Dropdown  Trigger */}
-                  <div
-                    className="p-3 text-sm border-2 rounded-md bg-white cursor-pointer"
-                    onClick={() => setCityIsOpen(!isCityOpen)}
-                  >
-                    {cityOption}
-                  </div>
-                  {/* Province Dropdown Options */}
-                  {isCityOpen && (
-                    <ul
-                      onMouseEnter={() => setCityIsOpen(true)}
-                      className="absolute top-11 w-full h-52 mt-1 bg-white border-2 rounded-md shadow-lg z-10 overflow-x-hidden"
-                    >
-                      {citiesInNepal.map((i) => (
-                        <li
-                          key={i}
-                          className="p-2  hover:bg-secondary hover:bg-opacity-30 hover:text-secondary cursor-pointer"
-                          onClick={() => handleCityOptionClick(`${i}`)}
-                        >
-                          {i}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
+              <FormLevelOne
+                mappingValue={provincesOfNepal}
+                handleClickEvent={handleClickProvince}
+                isMenuOpen={isProvinceOpen}
+                value={selectedProvince}
+                title={`Province`}
+                placeHolder={`Select Province`}
+                toggleSwitch={() => setIsProvinceOpen(!isProvinceOpen)}
+                required={`*`}
+              />
+              <FormLevelOne
+                mappingValue={citiesInNepal}
+                handleClickEvent={handleClickCity}
+                isMenuOpen={isCityOpen}
+                value={selectedCity}
+                title={`City`}
+                placeHolder={`Select City`}
+                toggleSwitch={() => setIsCityOpen(!isCityOpen)}
+                required={`*`}
+              />
             </div>
 
-            <div className="flex flex-col gap-1 mt-1 ">
-              <label className="text-sm">Postal code</label>
-              <input type="text" className="p-3 text-sm border-2 rounded-md" />
-            </div>
+            <FormNormal
+              title={`Postal Code`}
+              type={"text"}
+              placeholder={`eg. 44000`}
+            />
 
-            <div className="flex flex-col gap-1 mt-1 ">
-              <label className="text-sm">
-                Current Address<span className="text-red-500">*</span>
-              </label>
-              <input type="text" className="p-3 text-sm border-2 rounded-md" />
-            </div>
+            <FormNormal
+              required={`*`}
+              placeholder={"Kalanki, Kathmandu"}
+              title={`Current Address`}
+              type={"text"}
+            />
           </form>
 
           <div className="mt-5 self-end">
@@ -453,8 +396,6 @@ function RecruiterCompanyProfile() {
           </form>
         </div>
       </div>
-
- 
     </section>
   );
 }

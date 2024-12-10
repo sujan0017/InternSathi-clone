@@ -35,7 +35,7 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
   const [showMembershipMenu, setShowMembershipMenu] = useState(false);
 
   return (
-    <section className="relative min-h-screen ">
+    <section className="relative h-[100lvh] overflow-hidden  ">
       <DashboardHeader
         setMenuOpen={setMenuOpen}
         menuOpen={menuOpen}
@@ -46,15 +46,15 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
 
       {/* PC Menu */}
       <div
-        className={` min-w-64 h-screen flex flex-col items-start p-3 bg-white absolute top-0 left-0 z-10 border-r hidden md:block`}
+        className={` min-w-64 h-[95lvh] flex flex-col items-start p-3 bg-white absolute top-0 left-0 z-10 border-r hidden md:block`}
       >
         <Link to={"/"}>
           <Logo
             img={`https://internsathi.com/_next/image?url=%2Flogo_black.png&w=256&q=75`}
           />
         </Link>
-        <div className="w-full h-full flex flex-col justify-between items-center ">
-          <div className="mt-5  w-full h-full">
+        <div className="w-full h-full flex flex-col justify-between items-center  ">
+          <div className="mt-5  w-full h-full overflow-x-auto">
             <Link
               to="/dashboard/company/"
               onClick={() => handleButtonClick("dashboard")}
@@ -294,8 +294,8 @@ function RecruiterDashboard({ activeButton, handleButtonClick }) {
             img={`https://internsathi.com/_next/image?url=%2Flogo_black.png&w=256&q=75`}
           />
         </Link>
-        <div className="w-full h-full flex flex-col justify-between items-center ">
-          <div className="mt-5  w-full h-full">
+        <div className="w-full h-full flex flex-col justify-between items-center  ">
+          <div className="mt-5  w-full h-full overflow-x-auto">
             <Link
               to="/dashboard/company/"
               onClick={() => handleButtonClick("dashboard")}

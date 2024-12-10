@@ -40,12 +40,12 @@ function Dashboard({activeButton, handleButtonClick }) {
   // };
 
   return (
-    <section className="relative min-h-screen ">
+    <section className="relative h-80 overflow-hidden ">
       <DashboardHeader setMenuOpen={setMenuOpen} menuOpen={menuOpen} handleButtonClick={handleButtonClick} />
 
       {/* PC Menu */}
       <div
-        className={` min-w-64 h-screen flex flex-col items-start p-3 bg-white absolute top-0 left-0 z-10 border-r hidden md:block`}
+        className={` min-w-64 h-screen flex flex-col items-start p-3 absolute top-0 left-0 z-10 border-r hidden md:block `}
       >
         <Link to={"/"}>
           <Logo
@@ -53,7 +53,7 @@ function Dashboard({activeButton, handleButtonClick }) {
           />
         </Link>
         <div className="w-full h-full flex flex-col justify-between items-center ">
-          <div className="mt-5  w-full h-full">
+          <div className="mt-5  w-full h-full overflow-x-hidden">
             <Link
               to="/dashboard/candidate/"
               onClick={() => handleButtonClick("dashboard")}
